@@ -1,0 +1,45 @@
+name: IntentionalUse 지원 요청
+description: 앱 사용 중 발생한 문제를 개인정보 없이 알려 주세요.
+title: "[지원] "
+labels:
+  - support
+body:
+  - type: markdown
+    attributes:
+      value: |
+        이 이슈는 공개됩니다. 앱·카테고리 이름, Screen Time 선택 정보, token, Apple 계정, 기기 식별자와 그 밖의 개인정보를 작성하지 마세요.
+  - type: dropdown
+    id: area
+    attributes:
+      label: 문제가 발생한 기능
+      options:
+        - 권한과 보호 설정
+        - Shield 표시
+        - 임시 허용과 만료 복원
+        - Live Activity와 Dynamic Island
+        - 전체 앱 데이터 초기화
+        - 기타
+    validations:
+      required: true
+  - type: input
+    id: ios
+    attributes:
+      label: iOS 버전
+      placeholder: 예: iOS 26.5
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 단계와 관찰 결과
+      description: 선택한 앱 이름이나 개인 화면 내용은 제외해 주세요.
+      placeholder: 어떤 버튼을 눌렀고 무엇이 표시됐는지 순서대로 작성해 주세요.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 개인정보 확인
+      options:
+        - label: 이 요청에 앱·카테고리 이름, token, Apple 계정, 기기 식별자와 그 밖의 개인정보를 포함하지 않았습니다.
+          required: true
