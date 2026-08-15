@@ -17,6 +17,7 @@ body:
         - Shield 표시
         - 임시 허용과 만료 복원
         - Live Activity와 Dynamic Island
+        - 기록과 앱별 통계
         - 전체 앱 데이터 초기화
         - 기타
     validations:
