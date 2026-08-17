@@ -27,7 +27,7 @@
     <article>
       <p class="eyebrow">개인정보 보호</p>
       <h1>개인정보처리방침</h1>
-      <p class="effective-date">시행일: 2026년 8월 15일</p>
+      <p class="effective-date">시행일: 2026년 8월 17일</p>
       <p class="lede">IntentionalUse는 사용자가 자신의 앱 사용 습관을 관리하도록 돕습니다. 계정을 만들지 않으며 광고·분석·추적 SDK를 사용하지 않습니다.</p>
 
       <section>
@@ -51,7 +51,7 @@
           <li>사용자가 기기 내 기록을 켠 뒤 발생한 의도적 임시 허용과 습관적 실행 중단의 임의 식별자, 시각, 계획 만료 시각과 종료 사유</li>
           <li>사용자가 앱별 기록도 켠 뒤 새로 발생한 선택을 구분하기 위한 무작위 로컬 앱 참조와 Apple Screen Time의 불투명 application token</li>
         </ul>
-        <p>선택 기록은 기본적으로 꺼져 있습니다. 최초 기록 시작 화면은 전체 횟수 기록과 앱별 횟수 기록을 함께 설명하며, 앱별 기록은 설정에서 별도로 끌 수 있습니다. 앱별 기록을 켜면 행동 이벤트에는 무작위 앱 참조만 저장하고, 그 참조와 불투명 application token의 연결은 기기 안의 별도 파일에 보관합니다. 앱은 token을 앱 이름으로 해석하지 않으며 Apple의 시스템 화면 요소가 앱 아이콘과 이름을 표시합니다.</p>
+        <p>선택 기록은 기본적으로 꺼져 있습니다. 최초 <strong>기기 내 기록 시작</strong>은 앱 식별 정보가 없는 전체 선택 기록만 켭니다. 앱별 횟수 기록은 기록 탭 또는 설정에서 별도로 켜고 끌 수 있습니다. 앱별 기록을 켜면 행동 이벤트에는 무작위 앱 참조만 저장하고, 그 참조와 불투명 application token의 연결은 기기 안의 별도 파일에 보관합니다. 앱은 token을 앱 이름으로 해석하지 않으며 Apple의 시스템 화면 요소가 앱 아이콘과 이름을 표시합니다.</p>
         <p>기록을 켠 상태에서 Shield의 <strong>습관적으로 열었어요</strong>를 선택하면 앱과 extension 사이의 전용 공유 영역에 기록 동의 상태, 임의 이벤트 식별자와 시각을 잠시 저장합니다. 앱별 기록에도 동의한 경우에만 해당 application token을 이 일회성 항목에 추가하며, 앱이 기록 파일과 별도 token 인덱스로 가져온 뒤 삭제합니다.</p>
         <p>앱 이름, 카테고리, 사용자가 자유롭게 입력한 목적과 원시 Screen Time 사용 기록은 저장하지 않습니다. 앱별 통계는 IntentionalUse에서 선택한 허용·멈춤 횟수이고 실제 앱 사용 시간이 아닙니다. <strong>총 허용 시간</strong>도 실제 앱을 사용한 시간이 아니라 Shield를 잠시 풀어 둔 시간입니다. 사용자가 자유롭게 입력한 목적은 화면에 표시되는 동안만 메모리에 두며 파일에 저장하지 않습니다.</p>
       </section>
@@ -105,14 +105,14 @@
     <article lang="en" class="english-policy">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="effective-date">Effective: August 15, 2026</p>
+      <p class="effective-date">Effective: August 17, 2026</p>
       <p class="lede">IntentionalUse helps people manage their own app-use habits. It does not create user accounts and does not include advertising, analytics, or tracking SDKs.</p>
 
       <section><h2>1. Data Collected by the Developer</h2><p>The current version of the App itself does not automatically transmit or collect personal information or usage data to the developer or third-party servers. Optional public support issues submitted outside the App are described separately in Section 6. The App does not request an account, name, email address, or contacts; use advertising identifiers; track activity across other companies’ apps or websites; or use third-party advertising or analytics services.</p></section>
       <section>
         <h2>2. Data Processed on the Device</h2>
         <p>The App may store opaque application and category selection tokens supplied by Apple Screen Time; an opaque token, request and session identifiers, and timestamps needed for a temporary allowance and Shield restoration for one application; state needed for the Lock Screen and Dynamic Island countdown; and random identifiers, timestamps, planned expiration time, and end reason for intentional temporary allowances and habitual launches stopped after the user enables on-device history.</p>
-        <p>On-device history is off by default. The first opt-in explains both aggregate choice history and per-app counts. Per-app history can be disabled separately in Settings. When per-app history is enabled, behavior events contain only a random app reference, while the link between that reference and an opaque application token is kept in a separate on-device file. The App does not interpret the token as an app name; Apple's system label renders the icon and name.</p>
+        <p>On-device history is off by default. The first <strong>Start On-Device History</strong> action enables aggregate choice history without app identities. Per-app counts are a separate opt-in available in History or Settings and apply only to choices recorded after that opt-in; earlier aggregate records are not retroactively linked to an app. When per-app history is enabled, behavior events contain only a random app reference, while the link between that reference and an opaque application token is kept in a separate on-device file. The App does not interpret the token as an app name; Apple's system label renders the icon and name.</p>
         <p>When history is enabled and the user chooses <strong>I opened it out of habit</strong> on a Shield, a dedicated area shared by the App and its extension briefly stores consent state, a random event identifier, and a timestamp. It adds the exact opaque application token only while per-app history is also enabled, and deletes the item after import.</p>
         <p>The App does not store app names, categories, a typed purpose, or raw Screen Time usage records. Per-app statistics are counts of Allow and Stop choices made in IntentionalUse, not actual time spent in each app. <strong>Total allowance time</strong> is the time the Shield was temporarily removed, not actual foreground app-use time. A purpose typed by the user remains in memory only while the relevant screen is active and is not saved to a file.</p>
       </section>
