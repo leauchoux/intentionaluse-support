@@ -1,6 +1,6 @@
-# IntentionalUse Support
+# MomenTap Support
 
-Public support and privacy pages for IntentionalUse.
+Public support and privacy pages for MomenTap (repository name retained from its development name, IntentionalUse).
 
 - Support: https://leauchoux.github.io/intentionaluse-support/
 - Privacy policy: https://leauchoux.github.io/intentionaluse-support/privacy.html

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IntentionalUse 개인정보처리방침">
+  <meta name="description" content="MomenTap 개인정보처리방침">
   <meta name="color-scheme" content="light dark">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
-  <title>개인정보처리방침 — IntentionalUse</title>
+  <title>개인정보처리방침 — MomenTap</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="IntentionalUse 지원 홈">
+    <a class="brand" href="index.html" aria-label="MomenTap 지원 홈">
       <span class="brand-mark" aria-hidden="true">⌛</span>
-      <span>IntentionalUse</span>
+      <span>MomenTap</span>
     </a>
     <nav aria-label="주요 메뉴">
       <a href="index.html">지원</a>
@@ -27,15 +27,15 @@
     <article>
       <p class="eyebrow">개인정보 보호</p>
       <h1>개인정보처리방침</h1>
-      <p class="effective-date">시행일: 2026년 8월 17일</p>
-      <p class="lede">IntentionalUse는 사용자가 자신의 앱 사용 습관을 관리하도록 돕습니다. 계정을 만들지 않으며 광고·분석·추적 SDK를 사용하지 않습니다.</p>
+      <p class="effective-date">시행일: 2026년 8월 20일</p>
+      <p class="lede">MomenTap은 사용자가 자신의 앱과 웹사이트 사용 습관을 관리하도록 돕습니다. 계정을 만들지 않으며 광고·분석·추적 SDK를 사용하지 않습니다.</p>
 
       <section>
         <h2>1. 개발자가 수집하는 데이터</h2>
         <p>현재 버전의 앱 자체는 개인정보나 사용 데이터를 개발자 또는 제3자 서버로 자동 전송하거나 수집하지 않습니다. 사용자가 앱 밖에서 선택적으로 제출하는 공개 지원 이슈는 6절에서 별도로 설명합니다.</p>
         <ul>
           <li>계정, 이름, 이메일과 연락처를 요구하지 않습니다.</li>
-          <li>선택한 앱·카테고리, 입력한 목적과 상세 사용 기록을 개발자에게 전송하지 않습니다.</li>
+          <li>선택한 앱·카테고리·웹사이트, 입력한 목적과 상세 사용 기록을 개발자에게 전송하지 않습니다.</li>
           <li>광고 식별자나 다른 앱·웹사이트의 활동을 이용한 추적을 하지 않습니다.</li>
           <li>제3자 광고·분석 서비스를 사용하지 않습니다.</li>
         </ul>
@@ -45,20 +45,22 @@
         <h2>2. 기기 안에서 처리하는 데이터</h2>
         <p>기능 제공을 위해 다음 최소 상태를 사용자의 기기 안에 저장할 수 있습니다.</p>
         <ul>
-          <li>Apple Screen Time이 제공하는 불투명한 앱·카테고리 선택 token</li>
+          <li>Apple Screen Time이 제공하는 불투명한 앱·카테고리·직접 선택 웹사이트 token</li>
           <li>정확한 앱 하나의 임시 허용과 Shield 복원에 필요한 불투명 token, 요청·세션 식별자와 시각</li>
           <li>잠금 화면과 Dynamic Island 카운트다운에 필요한 세션 상태와 시각</li>
           <li>사용자가 기기 내 기록을 켠 뒤 발생한 의도적 임시 허용과 습관적 실행 중단의 임의 식별자, 시각, 계획 만료 시각과 종료 사유</li>
           <li>사용자가 앱별 기록도 켠 뒤 새로 발생한 선택을 구분하기 위한 무작위 로컬 앱 참조와 Apple Screen Time의 불투명 application token</li>
         </ul>
-        <p>선택 기록은 기본적으로 꺼져 있습니다. 최초 <strong>기기 내 기록 시작</strong>은 앱 식별 정보가 없는 전체 선택 기록만 켭니다. 앱별 횟수 기록은 기록 탭 또는 설정에서 별도로 켜고 끌 수 있습니다. 앱별 기록을 켜면 행동 이벤트에는 무작위 앱 참조만 저장하고, 그 참조와 불투명 application token의 연결은 기기 안의 별도 파일에 보관합니다. 앱은 token을 앱 이름으로 해석하지 않으며 Apple의 시스템 화면 요소가 앱 아이콘과 이름을 표시합니다.</p>
+        <p>선택 기록은 기본적으로 꺼져 있습니다. 최초 <strong>기기 내 기록 시작</strong>은 대상 식별 정보가 없는 전체 선택 기록만 켭니다. 앱별 기록은 별도의 기본-off 기능이며, 동의 뒤 새로 생긴 앱 선택만 구분하고 이전 전체 기록을 소급 연결하지 않습니다. 행동 이벤트에는 무작위 앱 참조만 저장하고, 그 참조와 불투명 application token의 연결은 기기 안의 별도 파일에 보관합니다. 앱은 token을 앱 이름으로 해석하지 않으며 Apple의 시스템 화면 요소가 앱 아이콘과 이름을 표시합니다. 웹사이트별 기록은 제공하지 않습니다.</p>
         <p>기록을 켠 상태에서 Shield의 <strong>습관적으로 열었어요</strong>를 선택하면 앱과 extension 사이의 전용 공유 영역에 기록 동의 상태, 임의 이벤트 식별자와 시각을 잠시 저장합니다. 앱별 기록에도 동의한 경우에만 해당 application token을 이 일회성 항목에 추가하며, 앱이 기록 파일과 별도 token 인덱스로 가져온 뒤 삭제합니다.</p>
-        <p>앱 이름, 카테고리, 사용자가 자유롭게 입력한 목적과 원시 Screen Time 사용 기록은 저장하지 않습니다. 앱별 통계는 IntentionalUse에서 선택한 허용·멈춤 횟수이고 실제 앱 사용 시간이 아닙니다. <strong>총 허용 시간</strong>도 실제 앱을 사용한 시간이 아니라 Shield를 잠시 풀어 둔 시간입니다. 사용자가 자유롭게 입력한 목적은 화면에 표시되는 동안만 메모리에 두며 파일에 저장하지 않습니다.</p>
+        <p>앱 이름, 평문 도메인, URL 경로·개별 페이지, 카테고리, 사용자가 자유롭게 입력한 목적과 원시 Screen Time 사용 기록은 저장하지 않습니다. 앱별 통계는 MomenTap에서 선택한 허용·멈춤 횟수이고 실제 앱 사용 시간이 아닙니다. <strong>총 허용 시간</strong>도 실제 앱을 사용한 시간이 아니라 Shield를 잠시 풀어 둔 시간입니다. 사용자가 자유롭게 입력한 목적은 화면에 표시되는 동안만 메모리에 두며 파일에 저장하지 않습니다.</p>
+        <p>Safari에서는 선택 웹사이트가 Apple의 기본 <strong>제한됨</strong> 화면으로 제한되며 MomenTap의 사용자 지정 동작은 표시되지 않습니다. 따라서 웹사이트는 보호를 끌 때까지 제한하는 기능만 제공하고, 웹사이트 임시 허용과 웹사이트별 행동 기록은 제공하지 않습니다. 이전 시험 빌드가 만든 웹사이트별 기록 동의와 token 연결은 앱 시작·foreground에서 전체 기록과 앱별 연결을 보존한 채 삭제합니다.</p>
       </section>
 
       <section>
         <h2>3. Apple 시스템 서비스</h2>
-        <p>앱·카테고리 선택, Shield, Device Activity와 Live Activity는 Apple이 제공하는 시스템 기능을 사용합니다. 사용자는 Screen Time 권한을 직접 승인하고 iPhone 설정에서 철회할 수 있습니다. Apple의 시스템 처리에는 Apple의 개인정보 보호정책과 기기 설정이 적용됩니다.</p>
+        <p>앱·카테고리·웹사이트 선택, Shield, Device Activity와 Live Activity는 Apple이 제공하는 시스템 기능을 사용합니다. 사용자는 Screen Time 권한을 직접 승인하고 iPhone 설정에서 철회할 수 있습니다. Apple의 공개 API는 모든 서브도메인이나 모든 브라우저에서 동일한 보호를 보장하지 않으며, URL 경로·개별 페이지를 앱이 저장하거나 보호 단위로 취급하지 않습니다. Apple의 시스템 처리에는 Apple의 개인정보 보호정책과 기기 설정이 적용됩니다.</p>
+        <p>앱에서 선택적으로 제공하는 일회성 개발자 후원은 Apple의 StoreKit과 App Store 결제 시스템이 처리합니다. 개발자는 결제 카드나 결제 수단 정보에 접근하지 않습니다. 앱은 거래 식별자, 영수증, 후원 내역이나 후원자 프로필을 파일 또는 개발자 서버에 저장하지 않으며, 후원 여부에 따라 기능·콘텐츠·고객지원을 다르게 제공하지 않습니다.</p>
       </section>
 
       <section>
@@ -66,9 +68,9 @@
         <ul>
           <li>활성 세션 상태는 세션 종료 또는 만료 정리가 끝나면 삭제됩니다.</li>
           <li>임시 허용 상태는 요청 소비, 만료 복원, 수동 종료, 권한 상실 또는 전체 초기화 때 삭제됩니다.</li>
-          <li>앱·카테고리 선택은 선택 초기화, 확인된 권한 거부·철회 또는 전체 초기화 때 삭제됩니다.</li>
+          <li>앱·카테고리·웹사이트 선택은 선택 초기화, 확인된 권한 거부·철회 또는 전체 초기화 때 삭제됩니다.</li>
           <li>선택 기록과 참조되는 앱별 token 연결은 최대 90일 보관되며 기록 삭제 또는 전체 초기화 때 즉시 삭제됩니다.</li>
-          <li>기록 일시중지는 기존 전체 기록을 유지하고 새 기록을 중단합니다. 앱별 기록만 끄거나 Screen Time 권한 상실이 확정되면 앱별 token 연결과 구분만 삭제하고 전체 허용·멈춤 횟수는 유지합니다.</li>
+          <li>기록 일시중지는 기존 전체 기록을 유지하고 새 기록을 중단합니다. 앱별 기록만 끄거나 Screen Time 권한 상실이 확정되면 앱별 token 연결과 구분만 삭제하고 전체 허용·멈춤 횟수는 유지합니다. 이전 시험 빌드의 웹사이트별 연결도 새 버전의 앱 시작·foreground에서 삭제합니다.</li>
           <li>앱이 저장하는 파일은 백업에서 제외되고 iOS Data Protection을 사용합니다.</li>
         </ul>
         <p><strong>모든 앱 데이터 초기화</strong>는 앱 소유 데이터와 Shield 요청을 정리하지만 시스템 Screen Time 권한 자체를 철회하지 않습니다.</p>
@@ -82,7 +84,7 @@
       <section>
         <h2>6. 선택적 공개 지원 요청</h2>
         <p>이 지원·개인정보 페이지는 GitHub Pages에서 호스팅됩니다. GitHub는 페이지 제공 과정에서 IP 주소나 요청 정보 같은 기술 데이터를 자체 방침에 따라 처리할 수 있습니다. 개발자는 페이지에 별도 분석 도구를 넣지 않았으며 GitHub Pages 방문자 분석 보고서를 받지 않습니다.</p>
-        <p>사용자는 도움이 필요할 때 외부 서비스인 GitHub의 공개 이슈를 선택적으로 이용할 수 있습니다. 이 경우 GitHub 계정명, 사용자가 작성한 내용과 작성 시각이 공개되고 개발자가 고객지원 목적으로 확인할 수 있습니다. 앱은 이 정보를 자동으로 전송하지 않습니다. 공개 이슈에 개인정보, 앱·카테고리 이름, Screen Time 선택 정보, token, Apple 계정과 기기 식별자를 작성하지 마세요.</p>
+        <p>사용자는 도움이 필요할 때 외부 서비스인 GitHub의 공개 이슈를 선택적으로 이용할 수 있습니다. 이 경우 GitHub 계정명, 사용자가 작성한 내용과 작성 시각이 공개되고 개발자가 고객지원 목적으로 확인할 수 있습니다. 앱은 이 정보를 자동으로 전송하지 않습니다. 공개 이슈에 개인정보, 앱·카테고리·웹사이트 이름, URL, Screen Time 선택 정보, token, Apple 계정과 기기 식별자를 작성하지 마세요.</p>
         <p>GitHub에서 처리되는 정보에는 <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>가 적용됩니다.</p>
       </section>
 
@@ -105,21 +107,22 @@
     <article lang="en" class="english-policy">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="effective-date">Effective: August 17, 2026</p>
-      <p class="lede">IntentionalUse helps people manage their own app-use habits. It does not create user accounts and does not include advertising, analytics, or tracking SDKs.</p>
+      <p class="effective-date">Effective: August 20, 2026</p>
+      <p class="lede">MomenTap helps people manage their own app and website-use habits. It does not create user accounts and does not include advertising, analytics, or tracking SDKs.</p>
 
       <section><h2>1. Data Collected by the Developer</h2><p>The current version of the App itself does not automatically transmit or collect personal information or usage data to the developer or third-party servers. Optional public support issues submitted outside the App are described separately in Section 6. The App does not request an account, name, email address, or contacts; use advertising identifiers; track activity across other companies’ apps or websites; or use third-party advertising or analytics services.</p></section>
       <section>
         <h2>2. Data Processed on the Device</h2>
-        <p>The App may store opaque application and category selection tokens supplied by Apple Screen Time; an opaque token, request and session identifiers, and timestamps needed for a temporary allowance and Shield restoration for one application; state needed for the Lock Screen and Dynamic Island countdown; and random identifiers, timestamps, planned expiration time, and end reason for intentional temporary allowances and habitual launches stopped after the user enables on-device history.</p>
+        <p>The App may store opaque application, category, and directly selected website tokens supplied by Apple Screen Time; an opaque application token, request and session identifiers, and timestamps needed for a temporary allowance and Shield restoration for one application; state needed for the Lock Screen and Dynamic Island countdown; and random identifiers, timestamps, planned expiration time, and end reason for intentional temporary allowances and habitual launches stopped after the user enables on-device history.</p>
         <p>On-device history is off by default. The first <strong>Start On-Device History</strong> action enables aggregate choice history without app identities. Per-app counts are a separate opt-in available in History or Settings and apply only to choices recorded after that opt-in; earlier aggregate records are not retroactively linked to an app. When per-app history is enabled, behavior events contain only a random app reference, while the link between that reference and an opaque application token is kept in a separate on-device file. The App does not interpret the token as an app name; Apple's system label renders the icon and name.</p>
         <p>When history is enabled and the user chooses <strong>I opened it out of habit</strong> on a Shield, a dedicated area shared by the App and its extension briefly stores consent state, a random event identifier, and a timestamp. It adds the exact opaque application token only while per-app history is also enabled, and deletes the item after import.</p>
-        <p>The App does not store app names, categories, a typed purpose, or raw Screen Time usage records. Per-app statistics are counts of Allow and Stop choices made in IntentionalUse, not actual time spent in each app. <strong>Total allowance time</strong> is the time the Shield was temporarily removed, not actual foreground app-use time. A purpose typed by the user remains in memory only while the relevant screen is active and is not saved to a file.</p>
+        <p>The App does not store app names, plaintext domains, URL paths or pages, categories, a typed purpose, or raw Screen Time usage records. Per-app statistics are counts of Allow and Stop choices made in MomenTap, not actual time spent in each app. <strong>Total allowance time</strong> is the time the Shield was temporarily removed, not actual foreground app-use time. The App does not offer per-website history. A purpose typed by the user remains in memory only while the relevant screen is active and is not saved to a file.</p>
+        <p>In Safari, selected websites are restricted by Apple's standard Restricted page and MomenTap's custom actions are not shown. The App therefore provides persistent restriction for selected websites, but does not offer website temporary allowances or per-website behavior history. Website-history consent and token links created by earlier test builds are deleted on app launch or foreground while aggregate and per-app history remain intact.</p>
       </section>
-      <section><h2>3. Apple System Services</h2><p>Application and category selection, Shields, Device Activity, and Live Activities use system features provided by Apple. The user grants Screen Time authorization directly and can revoke it in iPhone Settings. Apple’s privacy policy and device settings apply to Apple’s processing of these system features.</p></section>
-      <section><h2>4. Retention and Deletion</h2><p>Session, allowance, and selection state is removed when it is no longer needed, when authorization loss is confirmed, or when the user resets all App data. On-device choice history and referenced per-app token links are retained for up to 90 days and are deleted immediately when the user clears history or resets all App data. Pausing history keeps existing aggregate records while stopping new records. Disabling only per-app history, or confirmed loss of Screen Time authorization, removes per-app token links and attribution while preserving aggregate Allow and Stop counts. App-owned files are excluded from backup and use iOS Data Protection. Resetting App data does not revoke the system Screen Time authorization itself.</p></section>
+      <section><h2>3. Apple System Services</h2><p>Application, category, and website selection, Shields, Device Activity, and Live Activities use system features provided by Apple. The user grants Screen Time authorization directly and can revoke it in iPhone Settings. Apple’s public APIs do not guarantee identical protection for every subdomain or browser. The App does not store or treat URL paths or individual pages as protection units. Apple’s privacy policy and device settings apply to Apple’s processing of these system features.</p><p>Optional one-time developer support is processed by Apple’s StoreKit and App Store payment system. The developer does not have access to payment-card details. The App does not save transaction identifiers, receipts, support history, or a supporter profile, and support does not change access to features, content, or customer service.</p></section>
+      <section><h2>4. Retention and Deletion</h2><p>Session, allowance, and application, category, and website selection state is removed when it is no longer needed, when authorization loss is confirmed, or when the user resets all App data. On-device choice history and referenced per-app token links are retained for up to 90 days and are deleted immediately when the user clears history or resets all App data. Pausing history keeps existing aggregate records while stopping new records. Disabling only per-app history, or confirmed loss of Screen Time authorization, removes per-app token links and attribution while preserving aggregate Allow and Stop counts. Website-specific links created by earlier test builds are deleted when the updated App launches or returns to the foreground. App-owned files are excluded from backup and use iOS Data Protection. Resetting App data does not revoke the system Screen Time authorization itself.</p></section>
       <section><h2>5. Sharing and Sale</h2><p>Because the App does not transmit user data to the developer or third parties, it does not sell or share user data for advertising.</p></section>
-      <section><h2>6. Optional Public Support Requests</h2><p>These support and privacy pages are hosted on GitHub Pages. GitHub may process technical data such as IP addresses or request information under its own policy when serving the pages. The developer has not added analytics tools and does not receive GitHub Pages visitor analytics reports.</p><p>Users may optionally request help through public issues on the external GitHub service. A GitHub username, submitted content, and submission time will be public and may be accessed by the developer for customer support. The App does not transmit this information automatically. Do not include personal information, app or category names, Screen Time selections or tokens, Apple account information, or device identifiers in a public issue. GitHub processing is governed by the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p></section>
+      <section><h2>6. Optional Public Support Requests</h2><p>These support and privacy pages are hosted on GitHub Pages. GitHub may process technical data such as IP addresses or request information under its own policy when serving the pages. The developer has not added analytics tools and does not receive GitHub Pages visitor analytics reports.</p><p>Users may optionally request help through public issues on the external GitHub service. A GitHub username, submitted content, and submission time will be public and may be accessed by the developer for customer support. The App does not transmit this information automatically. Do not include personal information, app, category, or website names, URLs, Screen Time selections or tokens, Apple account information, or device identifiers in a public issue. GitHub processing is governed by the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p></section>
       <section><h2>7. Children’s Privacy</h2><p>The App is a self-management tool, not a parent-child supervision service. It does not collect user accounts or personal information.</p></section>
       <section><h2>8. Changes to This Policy</h2><p>If server sync, analytics SDKs, or new data processing are added, this policy and the App Store privacy disclosure will be updated before those features are released. Material changes will be reflected by updating the effective date.</p></section>
       <section><h2>9. Contact</h2><p>Privacy questions may be submitted through a <a href="https://github.com/leauchoux/intentionaluse-support/issues/new/choose">public support issue</a>. Do not include personal information or Screen Time selections in a public issue.</p></section>

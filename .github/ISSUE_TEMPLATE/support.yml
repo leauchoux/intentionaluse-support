@@ -1,4 +1,4 @@
-name: IntentionalUse 지원 요청
+name: MomenTap 지원 요청
 description: 앱 사용 중 발생한 문제를 개인정보 없이 알려 주세요.
 title: "[지원] "
 labels:
@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        이 이슈는 공개됩니다. 앱·카테고리 이름, Screen Time 선택 정보, token, Apple 계정, 기기 식별자와 그 밖의 개인정보를 작성하지 마세요.
+        이 이슈는 공개됩니다. 앱·웹사이트·카테고리 이름, URL, Screen Time 선택 정보, token, Apple 계정, 기기 식별자와 그 밖의 개인정보를 작성하지 마세요.
   - type: dropdown
     id: area
     attributes:
@@ -15,6 +15,7 @@ body:
       options:
         - 권한과 보호 설정
         - Shield 표시
+        - 웹사이트 제한
         - 임시 허용과 만료 복원
         - Live Activity와 Dynamic Island
         - 기록과 앱별 통계
@@ -33,7 +34,7 @@ body:
     id: steps
     attributes:
       label: 재현 단계와 관찰 결과
-      description: 선택한 앱 이름이나 개인 화면 내용은 제외해 주세요.
+      description: 선택한 앱·웹사이트 이름, URL이나 개인 화면 내용은 제외해 주세요.
       placeholder: 어떤 버튼을 눌렀고 무엇이 표시됐는지 순서대로 작성해 주세요.
     validations:
       required: true
@@ -42,5 +43,5 @@ body:
     attributes:
       label: 개인정보 확인
       options:
-        - label: 이 요청에 앱·카테고리 이름, token, Apple 계정, 기기 식별자와 그 밖의 개인정보를 포함하지 않았습니다.
+        - label: 이 요청에 앱·웹사이트·카테고리 이름, URL, token, Apple 계정, 기기 식별자와 그 밖의 개인정보를 포함하지 않았습니다.
           required: true
