@@ -50,7 +50,7 @@ h1 { font-size: clamp(2.5rem, 4.6vw, 4.1rem); font-weight: 720; margin-bottom: 1
 .about-copy p:last-child { margin-bottom: 0; color: var(--muted); font-size: 1rem; }
 .product { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); background: var(--soft); border-radius: 24px; overflow: hidden; }
 .product-visual { padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-right: 1px solid var(--line); }
-.app-icon { width: 112px; height: 112px; border-radius: 25%; margin-bottom: 1.35rem; }
+.app-icon { width: 112px; height: 112px; margin-bottom: 1.35rem; }
 .product-name { font-family: "Avenir Next", "Trebuchet MS", sans-serif; font-size: 2.05rem; letter-spacing: -.03em; line-height: 1.25; font-weight: 650; margin-bottom: .5rem; }
 .product-platform { font-size: .875rem; color: var(--muted); }
 .allowance { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.4rem; }
