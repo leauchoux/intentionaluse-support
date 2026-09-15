@@ -5,5 +5,13 @@ Public support and privacy pages for MomenTap (repository name retained from its
 - Support: https://leauchoux.github.io/intentionaluse-support/
 - Privacy policy: https://leauchoux.github.io/intentionaluse-support/privacy.html
 - Public support issues: https://github.com/leauchoux/intentionaluse-support/issues
+- IANJI business website (Korean): https://leauchoux.github.io/intentionaluse-support/organization/
+- IANJI business website (English): https://leauchoux.github.io/intentionaluse-support/organization/en/
 
 This repository contains public documentation only. It does not contain the application source code, Screen Time tokens, user data, analytics, or tracking scripts.
+
+The business website identifies IANJI (이안지), its mobile software work, MomenTap, and its published business contact details. It is static HTML and CSS and uses no forms, scripts, cookies, or third-party assets. Product status is stated as in development and testing.
+
+GitHub Pages serves the repository root. Existing support and privacy URLs remain unchanged. The organization pages use relative asset and navigation paths so they also work beneath the repository path. The canonical and language-alternate URLs should be updated if a custom domain is connected later.
+
+For Apple membership updates, website publication alone does not establish eligibility as an organization. Apple separately verifies legal entity status, D-U-N-S information, and organization-associated website and work email requirements. A GitHub Pages subdomain and a Gmail address should not be presented as already accepted by Apple.
