@@ -27,7 +27,7 @@
     <article>
       <p class="eyebrow">개인정보 보호</p>
       <h1>개인정보처리방침</h1>
-      <p class="effective-date">시행일: 2026년 9월 1일</p>
+      <p class="effective-date">시행일: 2026년 9월 15일</p>
       <p class="lede">MomenTap은 사용자가 자신의 앱과 웹사이트 사용 습관을 관리하도록 돕습니다. 계정을 만들지 않으며 광고·분석·추적 SDK를 사용하지 않습니다.</p>
 
       <section>
@@ -43,6 +43,8 @@
 
       <section>
         <h2>2. 기기 안에서 처리하는 데이터</h2>
+        <p>내부 테스트 후보에서 웹사이트 보호 화면이 임시 허용 설정 진입을 제공하는 경우, 선택한 웹사이트의 불투명 토큰 하나와 요청 식별자·시각·요청 형식 표식을 앱과 확장 프로그램 사이에 일시적으로 전달합니다. 목적과 허용 시간을 앱에서 확인한 뒤에만 임시 허용을 시작합니다. 웹사이트 주소·개별 페이지·목적 입력 내용은 이 요청에 저장하지 않으며, 요청 파일은 기기 백업에서 제외하고 소비 또는 데이터 초기화 시 정리합니다. Safari에 이 사용자 지정 화면이 표시된다는 보장은 없으며 기존 보호 탭의 웹사이트 허용 경로를 유지합니다.</p>
+        <p>사용자가 설정에서 <strong>Shield 진단</strong>을 시작하면 5분 동안 보호 화면의 호출 종류, 임의 진단 식별자와 시각만 이 iPhone의 앱·확장 전용 영역에 저장합니다. 기본적으로 꺼져 있으며 앱 이름, 웹사이트 주소, Screen Time 토큰, 입력 목적, 통계나 실제 방문·사용 횟수는 기록하거나 자동 전송하지 않습니다. 종류별 한 항목만 보관하고 수집은 시작 5분 뒤 자동 중단됩니다. 결과는 시작 24시간 이후 다음 앱 실행 또는 진단 화면 확인 때 삭제되며, 새 진단 시작·진단 결과 삭제·모든 앱 데이터 초기화로도 삭제됩니다. 파일은 기기 백업에서 제외되며 iOS Data Protection을 사용합니다. 사용자는 원할 때 결과 화면을 직접 캡처해 지원 요청에 사용할 수 있습니다. 이는 선택적 기술 진단이며 기존 선택 기록·보호 설정을 변경하지 않습니다.</p>
         <p>기능 제공을 위해 다음 최소 상태를 사용자의 기기 안에 저장할 수 있습니다.</p>
         <ul>
           <li>Apple Screen Time이 제공하는 불투명한 앱·카테고리·직접 선택 웹사이트 token</li>
@@ -111,12 +113,14 @@
     <article lang="en" class="english-policy">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="effective-date">Effective: September 1, 2026</p>
+      <p class="effective-date">Effective: September 15, 2026</p>
       <p class="lede">MomenTap helps people manage their own app and website-use habits. It does not create user accounts and does not include advertising, analytics, or tracking SDKs.</p>
 
       <section><h2>1. Data Collected by the Developer</h2><p>The current version of the App itself does not automatically transmit or collect personal information or usage data to the developer or third-party servers. Optional public support issues submitted outside the App are described separately in Section 6. The App does not request an account, name, email address, or contacts; use advertising identifiers; track activity across other companies’ apps or websites; or use third-party advertising or analytics services.</p></section>
       <section>
         <h2>2. Data Processed on the Device</h2>
+        <p>In the internal test candidate, when a website shield offers entry to temporary-allowance settings, one opaque website token, a request identifier, a timestamp, and a request-format marker are temporarily shared between the app and its extensions. An allowance starts only after you confirm your purpose and duration in the app. This request does not store a website address, individual page, or purpose text. Request files are excluded from device backups and removed when consumed or when app data is reset. This does not guarantee that Safari displays the custom shield; the existing website-allowance route in the Protection tab remains available.</p>
+        <p>When you start <strong>Shield diagnostics</strong> in Settings, callback types, a random diagnostic identifier and timestamps are stored in the app-and-extension shared area on this iPhone for a five-minute recording window. Diagnostics are off by default. App names, website addresses, Screen Time tokens, purpose text, statistics and actual visit or usage counts are not recorded or automatically transmitted. Only one entry per event type is retained. Recording stops five minutes after starting. Results are deleted on the next app launch or diagnostic refresh after 24 hours, or when you start a new diagnostic, delete diagnostic results or reset all app data. Files are excluded from device backups and use iOS Data Protection. You may choose to capture the results screen for a support request. This optional technical diagnostic does not change existing choice history or protection settings.</p>
         <p>The App may store opaque application, category, and directly selected website tokens supplied by Apple Screen Time; the last protection on/off Boolean used to decide whether protection should be restored after authorization is granted again following a reboot; an opaque application or WebDomain token, request and session identifiers, and timestamps needed for a temporary allowance and Shield restoration for one exact application or one exact website directly chosen in MomenTap; state needed for the Lock Screen and Dynamic Island countdown; and random identifiers, timestamps, planned expiration time, and end reason for intentional temporary allowances and habitual launches stopped after the user enables on-device history. The protection-intent setting contains no selection token, target name, timestamp, or behavior history.</p>
         <p>Random generation identifiers, sequence values, dispositions, and a monotonic system-uptime snapshot coordinate callback ownership and prevent a late system restoration callback from changing an earlier target after completion, authorization loss, or reset. This safety metadata does not contain an application or website token, plaintext domain or URL, or typed purpose.</p>
         <p>On-device history is off by default. The first <strong>Start On-Device History</strong> action enables aggregate choice history without target identities. Per-app and per-website history are separate opt-ins available in History or Settings and apply only to choices recorded after each opt-in; earlier aggregate records are not retroactively linked to a target. Behavior events contain only a random target reference, while the link between that reference and an opaque application or WebDomain token is kept in a separate on-device file. The App does not interpret a token as an app or website name; Apple's system label renders the display information.</p>
