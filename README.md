@@ -2,6 +2,22 @@
 
 Public support and privacy pages for MomenTap (repository name retained from its development name, IntentionalUse).
 
+## IANJI website on Cloudflare Pages
+
+The company website at https://ianji.net/ has Korean, English, and Japanese versions. Each language has a company page, a MomenTap product page, a support page, and a privacy page. The language links retain the current page. The existing `/privacy/` page also retains its English text for compatibility.
+
+| Language | Company | Product | Support | Privacy |
+| --- | --- | --- | --- | --- |
+| Korean | `/` | `/products/momentap/` | `/support/` | `/privacy/` |
+| English | `/en/` | `/en/products/momentap/` | `/en/support/` | `/en/privacy/` |
+| Japanese | `/ja/` | `/ja/products/momentap/` | `/ja/support/` | `/ja/privacy/` |
+
+Run `node scripts/build-cloudflare.mjs` to generate `dist/`. The original Korean/English GitHub Pages HTML files remain the source for existing content. `scripts/localize-cloudflare.mjs` applies reviewed English edits from `cloudflare/english-copy.json`, incorporates the translated pages in `cloudflare/`, and generates equivalent-page language links, canonical URLs, and the sitemap. English replacements deliberately fail when their source text no longer matches, so later changes receive another translation review. When privacy processing changes, update the Korean source and all translated provisions together.
+
+The build uses Node.js built-ins only. No client-side scripts, remote fonts, analytics, forms, or new services are added. Deploy only `dist/`; do not deploy local verification evidence or private account files. Deployment configuration is described in [CLOUDFLARE_PAGES.md](CLOUDFLARE_PAGES.md).
+
+## Existing GitHub Pages URLs
+
 - Support: https://leauchoux.github.io/intentionaluse-support/
 - Privacy policy: https://leauchoux.github.io/intentionaluse-support/privacy.html
 - Public support issues: https://github.com/leauchoux/intentionaluse-support/issues

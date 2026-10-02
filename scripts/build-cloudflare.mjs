@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { localizeSite } from './localize-cloudflare.mjs';
 
 // Build a separate Cloudflare site without changing the GitHub Pages sources.
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -297,4 +298,5 @@ await write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 ${['/', '/en/', '/products/momentap/', '/en/products/momentap/', '/support/', '/privacy/'].map(route => `  <url><loc>${origin}${route}</loc></url>`).join('\n')}
 </urlset>
 `);
-console.log(`Built static Cloudflare Pages bundle in ${output}`);
+await localizeSite({ root, output, origin });
+console.log(`Built Korean, English and Japanese Cloudflare Pages bundle in ${output}`);
