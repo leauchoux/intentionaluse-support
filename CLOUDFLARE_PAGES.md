@@ -1,5 +1,15 @@
 # IANJI Cloudflare Pages 준비
 
+## 2026-10-03 다국어 확장
+
+현재 공개 사이트는 `https://ianji.net/`, Cloudflare Pages 프로젝트는 `ianji`다. 2026-10-03 읽기 확인 시 프로덕션 브랜치는 `codex/ianji-cloudflare-pages`, 기존 프로덕션 커밋은 `b578929`이며 GitHub의 `main`과 구분한다. 아래 초기 준비 이력의 미배포 표현은 당시 상태다. 다국어 변경 자체의 공개 완료는 배포 성공과 실제 HTTPS 본문 대조로 별도 확인한다.
+
+빌드 명령과 출력은 그대로 `node scripts/build-cloudflare.mjs` / `dist`다. 회사·MomenTap 제품·지원·개인정보를 한국어/영어/일본어 12개 경로로 제공하고 각 페이지의 언어 메뉴·canonical·hreflang·sitemap을 함께 생성한다. 경로 표와 번역 소스는 README를 따른다. 기존 `/privacy/`의 한·영 병기 구조와 한국어 처리 방침은 유지하고 영어 표현을 검수하며 영어 단독 `/en/privacy/`와 일본어 `/ja/privacy/`를 추가한다. 404에도 일본어 안내와 홈 링크를 추가한다.
+
+새 언어는 정적 HTML과 CSS로 제공한다. 기존 보안 헤더·리디렉션·아이콘·메일 주소는 유지하며 DNS·DNSSEC·메일 설정 변경이 필요한 작업이 아니다. 일본어는 모바일에서 자연스럽게 줄바꿈하고, 언어 선택은 JavaScript 없이 링크로 동작한다. 기능 출시나 Apple 조직 전환 승인을 새로 주장하지 않는다.
+
+## 초기 준비 기록
+
 상태: **로컬 배포 파일 준비 완료, 배포·사용자 도메인 연결 전**. 이 문서는 계정 로그인, 프로젝트 생성, GitHub 연결, 네임서버 변경 또는 배포가 완료되었다는 증거가 아니다.
 
 IANJI 회사 홈페이지의 목표 주소는 `https://ianji.net`, 문의 주소는 `contact@ianji.net`이다. 메인은 회사 소개·제품 목록·문의로 구성하고, 각 제품의 상세 설명은 하위 페이지에 둔다. 현재 준비된 제품 하위 페이지는 MomenTap 한국어·영어 페이지다. 기존 GitHub Pages HTML·CSS·아이콘은 그대로 두고, Node.js 스크립트가 Cloudflare용 `dist/`만 생성한다. `dist/`는 Git 추적에서 제외한다.
