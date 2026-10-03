@@ -6,7 +6,9 @@
 
 빌드 명령과 출력은 그대로 `node scripts/build-cloudflare.mjs` / `dist`다. 회사·MomenTap 제품·지원·개인정보를 한국어/영어/일본어 12개 경로로 제공하고 각 페이지의 언어 메뉴·canonical·hreflang·sitemap을 함께 생성한다. 경로 표와 번역 소스는 README를 따른다. 기존 `/privacy/`의 한·영 병기 구조와 한국어 처리 방침은 유지하고 영어 표현을 검수하며 영어 단독 `/en/privacy/`와 일본어 `/ja/privacy/`를 추가한다. 404에도 일본어 안내와 홈 링크를 추가한다.
 
-새 언어는 정적 HTML과 CSS로 제공한다. 기존 보안 헤더·리디렉션·아이콘·메일 주소는 유지하며 DNS·DNSSEC·메일 설정 변경이 필요한 작업이 아니다. 일본어는 모바일에서 자연스럽게 줄바꿈하고, 언어 선택은 현재 언어만 보이는 HTML `details/summary` 드롭다운으로 제공한다. 목록은 언어가 늘어나면 내부 스크롤되며, 선택 시 같은 종류의 페이지로 이동한다. JavaScript나 CSP 변경 없이 동작한다. 기존 하단의 언어 나열 링크는 상단 선택기로 통일했다. 기능 출시나 Apple 조직 전환 승인을 새로 주장하지 않는다.
+각 언어의 본문은 정적 HTML과 CSS로 제공한다. Cloudflare 빌드의 상단 언어 선택기는 검색 가능한 네이티브 HTML `dialog`와 작은 자체 JavaScript를 사용한다. 목록은 내부 스크롤되며 언어를 선택하면 같은 종류의 페이지로 이동한다. 닫기 버튼·Escape·대화상자 바깥 클릭으로 닫으면 선택기를 열었던 버튼으로 포커스가 돌아간다. 스크립트 초기화가 끝나기 전이나 스크립트를 불러오지 못한 경우에는 기본 `details/summary` 언어 링크 목록을 사용할 수 있다. 기존 하단의 언어 나열 링크는 상단 선택기로 통일했다.
+
+빌드는 자체 스크립트의 SHA-256을 계산해 HTML의 SRI와 HTML meta·응답 헤더의 CSP에 동일하게 넣는다. 스크립트 전체에 대한 `'self'`나 `'unsafe-inline'` 허용을 추가하지 않는다. 기존의 나머지 보안 제한·리디렉션·아이콘·메일 주소는 유지하며 DNS·DNSSEC·메일 설정 변경이 필요한 작업이 아니다. 원본 GitHub Pages는 JavaScript를 사용하지 않는 상태로 보존한다. 기능 출시나 Apple 조직 전환 승인을 새로 주장하지 않는다.
 
 ## 초기 준비 기록
 
@@ -32,7 +34,7 @@ IANJI 회사 홈페이지의 목표 주소는 `https://ianji.net`, 문의 주소
 
 현재 준비 변경은 `main`에 병합되지 않았다. 초기 `pages.dev` 검토 배포를 진행하기로 한 경우에는 준비 브랜치 `codex/ianji-cloudflare-pages`를 임시 프로덕션 브랜치로 지정할 수 있다. 이후 PR #7 병합을 확인한 뒤 프로덕션 브랜치를 `main`으로 전환한다. GitHub 앱의 저장소 접근 권한 승인, Cloudflare 프로젝트 생성과 배포는 별도의 실제 확인이 필요하며, 이 문서는 완료를 보장하지 않는다.
 
-배포 파일에는 서버 함수, 사용자 계정, 결제, 입력 양식, JavaScript, 분석·추적 스크립트가 없다. 링크는 이메일 앱이나 외부 GitHub 지원 페이지를 열 수 있다. Cloudflare 계정에서 Web Analytics 등 별도 기능을 활성화할 경우 개인정보 설명과 보안 정책을 다시 검토한다. 이메일 주소 난독화(Email Address Obfuscation)는 주소를 변환하고 복원 스크립트를 주입하므로 이 사이트의 스크립트 차단 CSP와 충돌할 수 있다. 운영 설정에서 이 기능을 끄고 `contact@ianji.net`의 표시·메일 링크를 확인한다. Rocket Loader 등 스크립트를 주입하는 기능도 활성화하지 않는다. [Cloudflare 이메일 주소 난독화 안내](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
+배포 파일에는 서버 함수, 사용자 계정, 결제, 정보 제출용 양식, 분석·추적 스크립트가 없다. 자체 JavaScript는 언어 선택 대화상자를 열고 닫으며 브라우저 안에서 언어 목록을 필터링하는 데 사용한다. 검색어는 저장하거나 전송하지 않고 쿠키나 브라우저 저장소도 사용하지 않는다. 언어 링크를 선택하면 해당 페이지를 요청하며, 이메일·지원 링크는 이메일 앱이나 외부 GitHub 지원 페이지를 열 수 있다. Cloudflare 계정에서 Web Analytics 등 별도 기능을 활성화할 경우 개인정보 설명과 보안 정책을 다시 검토한다. 이메일 주소 난독화(Email Address Obfuscation)는 주소를 변환하고 복원 스크립트를 주입하므로 지정한 해시의 스크립트만 허용하는 CSP와 충돌할 수 있다. 운영 설정에서 이 기능을 끄고 `contact@ianji.net`의 표시·메일 링크를 확인한다. Rocket Loader 등 스크립트를 주입하는 기능도 활성화하지 않는다. [Cloudflare 이메일 주소 난독화 안내](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 
 ## 페이지 경로
 

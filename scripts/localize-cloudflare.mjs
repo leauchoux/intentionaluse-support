@@ -1,9 +1,18 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 
 const languages = ['ko', 'en', 'ja'];
 const names = { ko: '한국어', en: 'English', ja: '日本語' };
 const labels = { ko: '언어 선택', en: 'Language', ja: '言語を選択' };
+const englishNames = { ko: 'Korean', en: 'English', ja: 'Japanese' };
+const searchNames = { ko: 'ko ko-KR 한국어 Korean 한국', en: 'en en-US English 영어 영문 英語', ja: 'ja ja-JP 日本語 Japanese 일본어 일본' };
+const menuCopy = {
+  ko: { title: '언어 선택', close: '언어 선택 닫기', search: '검색', searchLabel: '언어 이름 또는 코드로 검색', empty: '일치하는 언어가 없습니다.', results: '{count}개 언어' },
+  en: { title: 'Select a language', close: 'Close language selector', search: 'Search', searchLabel: 'Search by language name or code', empty: 'No matching languages.', results: '{count} languages' },
+  ja: { title: '言語を選択', close: '言語選択を閉じる', search: '検索', searchLabel: '言語名またはコードで検索', empty: '一致する言語がありません。', results: '{count}言語' },
+};
+const globe = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>';
 const families = {
   home: { ko: '/', en: '/en/', ja: '/ja/' },
   product: { ko: '/products/momentap/', en: '/en/products/momentap/', ja: '/ja/products/momentap/' },
@@ -13,12 +22,22 @@ const families = {
 const fileFor = route => `${route.slice(1)}index.html`;
 
 function languagePicker(language, routes, { markCurrentPage = true } = {}) {
-  return `<details class="language-picker">
-    <summary aria-label="${labels[language]}: ${names[language]}"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span lang="${language}">${names[language]}</span></summary>
-    <ul class="language-options" aria-label="${labels[language]}">${languages.map(code =>
-      `<li><a href="${routes[code]}" lang="${code}" hreflang="${code}"${code === language && markCurrentPage ? ' aria-current="page"' : ''}><span>${names[code]}</span>${code === language ? '<span aria-hidden="true">✓</span>' : ''}</a></li>`
-    ).join('')}</ul>
-  </details>`;
+  const copy = menuCopy[language];
+  const trigger = `${globe}<span lang="${language}">${names[language]}</span>`;
+  const choices = languages.map(code => `<li data-language-search="${searchNames[code]}"><a class="language-choice" href="${routes[code]}" hreflang="${code}"${code === language && markCurrentPage ? ' aria-current="page"' : ''}><span class="language-choice-label"><span lang="${code}">${names[code]}</span><small lang="en">${englishNames[code]}</small></span>${code === language ? '<span class="language-check" aria-hidden="true">✓</span>' : ''}</a></li>`).join('');
+  return `<div class="language-picker">
+    <details class="language-fallback"><summary class="language-trigger" aria-label="${labels[language]}: ${names[language]}">${trigger}</summary><ul class="language-options" aria-label="${copy.title}">${choices}</ul></details>
+    <button class="language-trigger" type="button" aria-label="${labels[language]}: ${names[language]}" aria-haspopup="dialog" aria-controls="language-dialog" aria-expanded="false" hidden>${trigger}</button>
+    <dialog class="language-dialog" id="language-dialog" aria-labelledby="language-title" data-results-label="${copy.results}"${language === 'en' ? ' data-result-one="1 language"' : ''}>
+      <div class="language-panel">
+        <div class="language-panel-header"><h2 id="language-title">${copy.title}</h2><button class="language-close" type="button" aria-label="${copy.close}" autofocus><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m7 7 10 10M17 7 7 17"/></svg></button></div>
+        <ul class="language-list" aria-label="${copy.title}">${choices}</ul>
+        <p class="language-empty" hidden>${copy.empty}</p>
+      </div>
+      <label class="language-search">${'<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>'}<input id="language-search" type="search" placeholder="${copy.search}" aria-label="${copy.searchLabel}" autocomplete="off" spellcheck="false"></label>
+      <p class="language-status" role="status" aria-live="polite"></p>
+    </dialog>
+  </div>`;
 }
 
 function removeLanguageLinks(html) {
@@ -83,6 +102,14 @@ export async function localizeSite({ root, output, origin }) {
     await mkdir(path.dirname(file), { recursive: true });
     await writeFile(file, html);
   };
+  const menuScript = await readFile(path.join(root, 'cloudflare/language-menu.js'), 'utf8');
+  const digest = createHash('sha256').update(menuScript).digest();
+  const integrity = `sha256-${digest.toString('base64')}`;
+  const scriptPath = `assets/language-menu-${digest.toString('hex').slice(0, 12)}.js`;
+  const allowMenuScript = html => html.replace("default-src 'none';", `default-src 'none'; script-src '${integrity}';`)
+    .replace('</head>', `<script src="/${scriptPath}" integrity="${integrity}" defer></script>\n</head>`);
+  await write(scriptPath, menuScript);
+  await write('_headers', (await readOutput('_headers')).replace("default-src 'none';", `default-src 'none'; script-src '${integrity}';`));
 
   // Strict replacements leave the original GitHub Pages sources intact and
   // stop the build if their wording changes without another translation review.
@@ -110,30 +137,15 @@ export async function localizeSite({ root, output, origin }) {
           .replaceAll('href="/privacy/"', 'href="/en/privacy/"')
           .replaceAll('App support (Korean)', 'App support');
       }
-      await write(file, languageNavigation(html, language, routes, origin));
+      await write(file, allowMenuScript(languageNavigation(html, language, routes, origin)));
     }
   }
   let notFound = await readOutput('404.html');
   notFound = notFound.replace('<nav class="footer-links"', '<p lang="ja">ページが見つかりません。以下のリンクからお進みください。</p>\n    <nav class="footer-links"')
     .replace('</head>', '<link rel="stylesheet" href="/assets/languages.css">\n</head>');
   notFound = removeLanguageLinks(notFound).replace('</header>', languagePicker('ko', families.home, { markCurrentPage: false }) + '</header>');
-  await write('404.html', notFound);
-  await write('assets/languages.css', `/* Language navigation and Japanese typography; no scripts or remote fonts. */
-.language-picker { position: relative; z-index: 10; flex: 0 0 auto; max-width: 100%; margin: 0; padding: 0; border: 0; font-size: .9375rem; }
-.language-picker:last-child { border: 0; }
-.language-picker > summary { display: flex; align-items: center; gap: .5rem; min-height: 44px; padding: .45rem .85rem; border: 1px solid var(--line); border-radius: 100px; background: var(--paper); color: var(--ink); font-weight: 600; line-height: 1.4; list-style: none; cursor: pointer; }
-.language-picker > summary::-webkit-details-marker { display: none; }
-.language-picker > summary svg { width: 18px; height: 18px; flex: none; }
-.language-picker > summary::after { content: ''; width: .4rem; height: .4rem; margin-left: .3rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
-.language-picker[open] > summary { border-color: currentColor; }
-.language-picker[open] > summary::after { transform: translateY(2px) rotate(225deg); }
-.language-picker:not([open]) > .language-options { display: none; }
-.language-options { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); width: max-content; min-width: min(11rem, calc(100vw - 40px)); max-width: calc(100vw - 40px); max-height: min(60vh, 22rem); overflow-y: auto; overscroll-behavior: contain; margin: 0; padding: .35rem; list-style: none; border: 1px solid var(--line); border-radius: 14px; background: var(--surface, var(--paper)); box-shadow: 0 10px 32px rgb(20 20 40 / 14%); }
-.language-options li { margin: 0; padding: 0; }
-.language-options a { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 44px; padding: .5rem .75rem; border-radius: 8px; color: var(--ink); line-height: 1.4; text-decoration: none; overflow-wrap: anywhere; }
-.language-options a:hover, .language-options a[aria-current="page"] { background: var(--soft, var(--violet-soft)); }
-.language-options a[aria-current="page"] { font-weight: 700; }
-.language-picker > summary:focus-visible, .language-options a:focus-visible { outline: 3px solid var(--focus, var(--brand)); outline-offset: 2px; }
+  await write('404.html', allowMenuScript(notFound));
+  await write('assets/languages.css', await readFile(path.join(root, 'cloudflare/language-menu.css'), 'utf8') + `
 .site-header nav { flex-wrap: wrap; align-items: center; }
 .site-header > nav { margin-inline-start: auto; }
 .site-header > .language-picker:last-child { margin-inline-start: auto; }
@@ -151,9 +163,6 @@ html:lang(en) h1#hero-title { font-size: clamp(2rem, 4.8vw, 3.5rem); }
   .site-header:not(.wrap) nav { width: 100%; flex-direction: row; justify-content: flex-start; gap: .35rem 1rem; text-align: left; }
   .site-header:not(.wrap) nav > a { display: inline-flex; align-items: center; min-height: 44px; }
   html:lang(ja) .hero h1 { font-size: clamp(1.5rem, 7vw, 2.25rem); }
-}
-@media (max-width: 360px) {
-  .language-picker > summary { gap: .35rem; padding-inline: .65rem; font-size: .875rem; }
 }
 `);
   const routes = Object.values(families).flatMap(family => Object.values(family));
