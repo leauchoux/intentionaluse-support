@@ -182,8 +182,8 @@ async function privacy() {
   html = replaceRequired(html,
     '<nav aria-label="주요 메뉴">',
     '<nav aria-label="주요 메뉴">\n      <a href="/">이안지 소개</a>\n      <a href="/products/momentap/">MomenTap 소개</a>');
-  html = replaceRequired(html, '시행일: 2026년 9월 30일', '시행일: 2026년 10월 1일');
-  html = replaceRequired(html, 'Effective: September 30, 2026', 'Effective: October 1, 2026');
+  html = replaceRequired(html, '시행일: 2026년 10월 3일', '시행일: 2026년 10월 3일');
+  html = replaceRequired(html, 'Effective: October 3, 2026', 'Effective: October 3, 2026');
   html = replaceRequired(html,
     '사용자가 앱 밖에서 선택적으로 제출하는 공개 지원 이슈는 6절에서 별도로 설명합니다.',
     '사용자가 앱 밖에서 선택적으로 제출하는 공개 지원 이슈와 이메일 문의는 6절에서 별도로 설명합니다.');
