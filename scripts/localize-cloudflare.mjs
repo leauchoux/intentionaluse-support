@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 
@@ -165,6 +165,15 @@ html:lang(en) h1#hero-title { font-size: clamp(2rem, 4.8vw, 3.5rem); }
   html:lang(ja) .hero h1 { font-size: clamp(1.5rem, 7vw, 2.25rem); }
 }
 `);
+  // Existing visitors may still have the previous selector CSS cached. Version
+  // the stylesheet with its contents, just like the script, before publishing.
+  const styles = await readOutput('assets/languages.css');
+  const styleHash = createHash('sha256').update(styles).digest('hex').slice(0, 12);
+  const stylePath = `assets/languages-${styleHash}.css`;
+  await rename(path.join(output, 'assets/languages.css'), path.join(output, stylePath));
+  for (const file of [...Object.values(families).flatMap(routes => Object.values(routes).map(fileFor)), '404.html']) {
+    await write(file, (await readOutput(file)).replace('href="/assets/languages.css"', `href="/${stylePath}"`));
+  }
   const routes = Object.values(families).flatMap(family => Object.values(family));
   await write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(route => `  <url><loc>${origin}${route}</loc></url>`).join('\n')}\n</urlset>\n`);
 }
