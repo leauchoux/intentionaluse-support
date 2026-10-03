@@ -193,7 +193,7 @@ async function privacy() {
   html = replaceRequired(html, '<h2>6. 선택적 공개 지원 요청</h2>', '<h2>6. 웹사이트와 선택적 지원 요청</h2>');
   html = replaceRequired(html,
     '<p>이 지원·개인정보 페이지는 GitHub Pages에서 호스팅됩니다. GitHub는 페이지 제공 과정에서 IP 주소나 요청 정보 같은 기술 데이터를 자체 방침에 따라 처리할 수 있습니다. 개발자는 페이지에 별도 분석 도구를 넣지 않았으며 GitHub Pages 방문자 분석 보고서를 받지 않습니다.</p>',
-    '<p>이 회사 소개·지원·개인정보 페이지는 Cloudflare Pages에서 호스팅됩니다. Cloudflare는 웹페이지 제공과 보안을 위해 IP 주소와 요청 정보 같은 기술 데이터를 자체 방침에 따라 처리할 수 있습니다. 이 사이트에는 별도 분석·추적 스크립트나 입력 양식을 추가하지 않았습니다. Cloudflare의 처리에는 <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>가 적용됩니다.</p>');
+    '<p>이 회사 소개·지원·개인정보 페이지는 Cloudflare Pages에서 호스팅됩니다. Cloudflare는 웹페이지 제공과 보안을 위해 IP 주소와 요청 정보 같은 기술 데이터를 자체 방침에 따라 처리할 수 있습니다. 이 사이트에는 분석·추적 스크립트나 정보 제출용 양식이 없습니다. 언어 검색어는 브라우저 안에서 언어 목록을 좁히는 데만 사용하며 저장하거나 전송하지 않습니다. 언어를 선택하면 해당 언어의 페이지를 불러옵니다. Cloudflare의 처리에는 <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>가 적용됩니다.</p>');
   html = replaceRequired(html,
     '<p>GitHub에서 처리되는 정보에는',
     `<p>이메일로 문의하면 회신에 필요한 발신 이메일 주소와 사용자가 작성한 내용을 개발자가 확인할 수 있습니다. 문의 메일은 iCloud Mail을 통해 수신하며 <a href="https://www.apple.com/legal/privacy/">Apple 개인정보 처리방침</a>도 적용됩니다. 앱은 문의 메일이나 지원 정보를 자동으로 전송하지 않습니다. 이메일에도 Screen Time token 등 민감한 정보를 보내지 마세요.</p>\n        <p>GitHub에서 처리되는 정보에는`);
@@ -203,7 +203,7 @@ async function privacy() {
   html = replaceRequired(html, '<h2>6. Optional Public Support Requests</h2>', '<h2>6. Website and Optional Support Requests</h2>');
   html = replaceRequired(html,
     '<p>These support and privacy pages are hosted on GitHub Pages. GitHub may process technical data such as IP addresses or request information under its own policy when serving the pages. The developer has not added analytics tools and does not receive GitHub Pages visitor analytics reports.</p>',
-    '<p>These company, support, and privacy pages are hosted on Cloudflare Pages. Cloudflare may process technical data such as IP addresses and request information to serve and protect the website under its own policy. No separate analytics or tracking scripts or input forms have been added to this site. Cloudflare processing is governed by the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</p>');
+    '<p>These company, support, and privacy pages are hosted on Cloudflare Pages. Cloudflare may process technical data such as IP addresses and request information to serve and protect the website under its own policy. This site does not use analytics or tracking scripts or forms for submitting information. Text entered in the language search is used only to filter the language list in your browser and is not stored or transmitted. Choosing a language loads the corresponding page. Cloudflare processing is governed by the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>.</p>');
   html = replaceRequired(html,
     'GitHub General Privacy Statement</a>.</p></section>',
     'GitHub General Privacy Statement</a>.</p><p>If you contact the developer by email, the developer can access your sender email address and the message you submit to respond to your inquiry. Mail is received through iCloud Mail and the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a> also applies. The App does not send email or support information automatically. Do not email sensitive information such as Screen Time tokens.</p></section>');
