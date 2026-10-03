@@ -4,7 +4,7 @@ Public support and privacy pages for MomenTap (repository name retained from its
 
 ## IANJI website on Cloudflare Pages
 
-The company website at https://ianji.net/ has Korean, English, and Japanese versions. Each language has a company page, a MomenTap product page, a support page, and a privacy page. The language links retain the current page. The existing `/privacy/` page also retains its English text for compatibility.
+The company website at https://ianji.net/ has Korean, English, and Japanese versions. Each language has a company page, a MomenTap product page, a support page, and a privacy page. A compact language dropdown shows the current language. Its native HTML disclosure opens a scrollable list of language links, retaining the current page when a language is chosen. It works without JavaScript; use the same trigger to close it. Keyboard users can press Enter or Space to open it, then Tab to a language link. The selector remains next to the brand on small screens. The existing `/privacy/` page also retains its English text for compatibility.
 
 | Language | Company | Product | Support | Privacy |
 | --- | --- | --- | --- | --- |
