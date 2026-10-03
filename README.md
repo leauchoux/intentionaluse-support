@@ -2,6 +2,22 @@
 
 Public support and privacy pages for MomenTap (repository name retained from its development name, IntentionalUse).
 
+## IANJI website on Cloudflare Pages
+
+The company website at https://ianji.net/ has Korean, English, and Japanese versions. Each language has a company page, a MomenTap product page, a support page, and a privacy page. In the Cloudflare build, the language control next to the brand opens a native HTML dialog with a searchable, scrollable list of languages. Selecting a language opens the equivalent page. The close button, Escape key, or a click outside the dialog closes it and returns focus to the trigger. A basic HTML `details/summary` list remains available until the site's own JavaScript has initialized, including when the script cannot load. The existing `/privacy/` page also retains its English text for compatibility.
+
+| Language | Company | Product | Support | Privacy |
+| --- | --- | --- | --- | --- |
+| Korean | `/` | `/products/momentap/` | `/support/` | `/privacy/` |
+| English | `/en/` | `/en/products/momentap/` | `/en/support/` | `/en/privacy/` |
+| Japanese | `/ja/` | `/ja/products/momentap/` | `/ja/support/` | `/ja/privacy/` |
+
+Run `node scripts/build-cloudflare.mjs` to generate `dist/`. The original Korean/English GitHub Pages HTML files remain the source for existing content. `scripts/localize-cloudflare.mjs` applies reviewed English edits from `cloudflare/english-copy.json`, incorporates the translated pages in `cloudflare/`, and generates equivalent-page language links, canonical URLs, and the sitemap. Language-selector CSS and JavaScript use content-hashed filenames so existing visitors receive matching styles and behavior after updates. English replacements deliberately fail when their source text no longer matches, so later changes receive another translation review. When privacy processing changes, update the Korean source and all translated provisions together.
+
+The build uses Node.js built-ins only. The language selector uses one small, external JavaScript file served by this site. The build computes its SHA-256 hash for both Subresource Integrity (SRI) and the Content Security Policy (CSP), allowing that script without broadly allowing same-origin scripts or inline code. Language searches only filter the list in the browser; search text is not stored or transmitted. Selecting a language makes a normal request for the corresponding page. The script does not use cookies or browser storage. No remote fonts, analytics, tracking, information-submission forms, or new services are added. Deploy only `dist/`; do not deploy local verification evidence or private account files. Deployment configuration is described in [CLOUDFLARE_PAGES.md](CLOUDFLARE_PAGES.md).
+
+## Existing GitHub Pages URLs
+
 - Support: https://leauchoux.github.io/intentionaluse-support/
 - Privacy policy: https://leauchoux.github.io/intentionaluse-support/privacy.html
 - Public support issues: https://github.com/leauchoux/intentionaluse-support/issues
@@ -10,7 +26,7 @@ Public support and privacy pages for MomenTap (repository name retained from its
 
 This repository contains public documentation only. It does not contain the application source code, Screen Time tokens, user data, analytics, or tracking scripts.
 
-The business website identifies IANJI (이안지), its mobile software work, MomenTap, and its published business contact details. It is static HTML and CSS and uses no forms, scripts, cookies, or third-party assets. Product status is stated as in development and testing.
+The original GitHub Pages business pages identify IANJI (이안지), its mobile software work, MomenTap, and its published business contact details. Those original pages remain static HTML and CSS, with no forms, client-side scripts, cookies, or third-party assets. The Cloudflare build adds the language selector described above without changing these originals. Product status remains in development and testing.
 
 GitHub Pages serves the repository root. Existing support and privacy URLs remain unchanged. The organization pages use relative asset and navigation paths so they also work beneath the repository path. The canonical and language-alternate URLs should be updated if a custom domain is connected later.
 

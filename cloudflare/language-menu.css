@@ -1,0 +1,107 @@
+/* Neutral language selector; typography and placement inherit the IANJI site. */
+.language-picker {
+  --language-surface: #e8e8e8;
+  --language-ink: #171717;
+  --language-muted: #525252;
+  --language-hover: #dedede;
+  --language-check: #fff;
+  position: relative;
+  z-index: 10;
+  flex: 0 0 auto;
+  max-width: 100%;
+  color: var(--ink);
+  font-size: 14px;
+}
+.language-picker [hidden] { display: none !important; }
+.language-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: pointer;
+  list-style: none;
+}
+.language-trigger:hover { background: rgb(128 128 128 / 10%); }
+.language-trigger svg, .language-search svg { width: 16px; height: 16px; flex: none; }
+.language-trigger::-webkit-details-marker { display: none; }
+.language-fallback, .language-fallback:last-child { margin: 0; padding: 0; border: 0; }
+.language-fallback:not([open]) > .language-options { display: none; }
+.language-options {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 8px);
+  width: 260px;
+  max-width: calc(100vw - 40px);
+  max-height: min(60vh, 360px);
+  overflow-y: auto;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  border-radius: 8px;
+  background: var(--language-surface);
+  color: var(--language-ink);
+}
+.language-dialog {
+  position: fixed;
+  inset: 80px max(20px, calc((100vw - 1120px) / 2)) auto auto;
+  width: min(340px, calc(100vw - 48px));
+  max-width: none;
+  max-height: calc(100dvh - 96px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--language-ink);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Apple SD Gothic Neo", sans-serif;
+  overflow: visible;
+}
+.language-dialog:not([open]) { display: none; }
+.site-header:not(.wrap) .language-dialog { inset-inline-end: max(18px, calc((100vw - 980px) / 2)); }
+.language-dialog::backdrop {
+  background: rgb(255 255 255 / 32%);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+}
+html:has(.language-dialog[open]) { overflow: hidden; }
+.language-panel { background: var(--language-surface); border-radius: 8px; overflow: hidden; }
+.language-panel-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; padding: 8px 16px 8px 28px; border-bottom: 1px solid rgb(0 0 0 / 5%); }
+.language-panel-header h2 { margin: 0; color: inherit; font: inherit; font-weight: 500; letter-spacing: normal; }
+/* Initial touch focus announces the title without highlighting a control. */
+.language-panel-header h2:focus { outline: none; }
+.language-close { position: relative; display: grid; place-items: center; width: 44px; height: 44px; flex: none; padding: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.language-close::before { content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--language-hover); }
+.language-close svg { position: relative; width: 16px; height: 16px; }
+.language-list { max-height: calc(100dvh - 226px); overflow-y: auto; overscroll-behavior: contain; list-style: none; margin: 0; padding: 8px 16px; }
+.language-list li, .language-options li { margin: 0; padding: 0; }
+.language-picker .language-choice { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; padding: 8px 12px; border-radius: 8px; color: var(--language-ink); font-size: 14px; font-weight: 400; line-height: 1.5; text-decoration: none; }
+.language-choice:hover, .language-choice:focus-visible { background: var(--language-hover); }
+.language-choice-label { display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.language-choice small { color: var(--language-muted); font-size: 13px; font-weight: 400; }
+.language-check { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 50%; background: var(--language-check); font-size: 17px; }
+.language-search { display: flex; align-items: center; gap: 10px; min-height: 48px; margin-top: 10px; padding: 8px 24px; border-radius: 100px; background: var(--language-surface); }
+.language-search input { width: 100%; min-width: 0; padding: 4px 0; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; font-size: 16px; }
+.language-search input::placeholder { color: var(--language-muted); opacity: 1; }
+.language-empty { margin: 0; padding: 24px 28px; color: var(--language-muted); }
+.language-status { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.language-trigger:focus-visible, .language-close:focus-visible, .language-choice:focus-visible, .language-search:focus-within { outline: 2px solid currentColor; outline-offset: 2px; }
+@media (max-width: 700px) {
+  .language-picker .language-dialog { top: 76px; inset-inline-end: 24px; max-height: calc(100dvh - 92px); }
+  .language-list { max-height: calc(100dvh - 222px); }
+}
+@media (max-height: 480px) {
+  .language-picker .language-dialog { top: 12px; max-height: calc(100dvh - 24px); }
+  .language-list { max-height: calc(100dvh - 154px); }
+}
+@media (prefers-color-scheme: dark) {
+  .language-picker { --language-surface: #292929; --language-ink: #f5f5f5; --language-muted: #c2c2c2; --language-hover: #383838; --language-check: #454545; }
+  .language-dialog::backdrop { background: rgb(0 0 0 / 25%); }
+  .language-panel-header { border-bottom-color: rgb(255 255 255 / 8%); }
+}

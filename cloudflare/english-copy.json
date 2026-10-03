@@ -1,0 +1,188 @@
+[
+  {
+    "file": "en/index.html",
+    "before": "<p class=\"section-sub\" lang=\"ko\">이안지 소개</p>",
+    "after": "<p class=\"section-sub\">Who we are</p>",
+    "reason": "영문 회사 소개에 남은 한글 소제목을 자연스러운 영어로 바꾸고 한국어 언어 표기를 제거합니다."
+  },
+  {
+    "file": "en/index.html",
+    "before": "IANJI develops mobile software that respects personal choice and privacy. Learn about MomenTap, our digital wellbeing app for iPhone, and contact our business.",
+    "after": "IANJI develops mobile software that respects personal choice and privacy. Learn about MomenTap, our digital wellbeing app for iPhone, and get in touch with us.",
+    "reason": "메타 설명의 contact our business는 어색한 직역이므로 자연스러운 연락 안내로 교정합니다. 제품 상태나 사업 범위는 바꾸지 않습니다."
+  },
+  {
+    "file": "en/index.html",
+    "before": "We are currently developing MomenTap, a digital wellbeing app for iPhone. It helps people reflect on habitual app use and make time for the access they actually need.",
+    "after": "We’re currently developing MomenTap, a digital wellbeing app for iPhone. It helps people pause before opening an app out of habit and choose when to use it and for how long.",
+    "reason": "make time for the access는 미국 영어에서 부자연스럽습니다. 앱 열기 전 성찰과 허용 시간 선택을 구체적으로 설명하며 개발 중 상태를 보존합니다."
+  },
+  {
+    "file": "en/index.html",
+    "before": "App support (Korean)",
+    "after": "App support",
+    "reason": "영어 지원 페이지가 추가되므로 한국어 전용이라는 낡은 표기를 제거합니다. 이 제안 적용 시 링크도 /en/support/로 연결해야 합니다."
+  },
+  {
+    "file": "en/products/momentap/index.html",
+    "before": "MomenTap is an iPhone app by IANJI that helps people reflect on habitual app use and make time for the access they need.",
+    "after": "MomenTap is an iPhone app by IANJI that helps people pause before opening an app out of habit and choose when to use it and for how long.",
+    "reason": "같은 문장이 메타 설명과 본문에 두 번 있습니다. 두 곳 모두 앱의 실제 선택 흐름을 자연스럽게 설명하고 사용 시간 측정으로 오해하지 않게 합니다."
+  },
+  {
+    "file": "en/products/momentap/index.html",
+    "before": "Temporary allowances: 5, 10, or 15 minutes",
+    "after": "Temporary access: 5, 10, or 15 minutes",
+    "reason": "접근성 설명을 앱의 공통 용어 Temporary access로 통일합니다. allowance의 용돈 연상을 피합니다."
+  },
+  {
+    "file": "en/products/momentap/index.html",
+    "before": "Pause before opening.<br>Use what you need.",
+    "after": "Pause before opening.<br>Use it with purpose.",
+    "reason": "Use what you need는 무엇을 사용하는지 모호합니다. 목적 있는 사용이라는 원래 의미를 자연스럽게 전달하며 기존 줄바꿈을 보존합니다."
+  },
+  {
+    "file": "en/products/momentap/index.html",
+    "before": "Choose what to protect and reflect on your intention before opening an app. When access is needed, set a short allowance of 5, 10, or 15 minutes.",
+    "after": "Choose what to protect, then take a moment to consider why you want to open an app. When you need access, allow it for 5, 10, or 15 minutes.",
+    "reason": "reflect on your intention과 short allowance를 쉬운 소비자 문구로 바꿉니다. 보호 대상 범위와 5·10·15분 선택은 그대로 유지합니다."
+  },
+  {
+    "file": "en/products/momentap/index.html",
+    "before": "People choose what to protect and how long to allow access. The app creates a small moment to consider that choice.",
+    "after": "You choose what to protect and how long to allow access. MomenTap gives you a moment to consider your choice.",
+    "reason": "create a small moment라는 직역을 자연스럽게 교정하고 주변 제품 설명과 같은 사용자 중심 어조로 맞춥니다."
+  },
+  {
+    "file": "en/products/momentap/index.html",
+    "before": "App support (Korean)",
+    "after": "App support",
+    "reason": "영어 지원 페이지 추가에 맞춰 두 개의 링크 라벨을 교정합니다. 링크도 /en/support/로 연결해야 합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "MomenTap helps people manage their own app and website-use habits.",
+    "after": "MomenTap helps people manage their own habits when using apps and websites.",
+    "reason": "app and website-use habits의 어색한 연결을 풀어 씁니다. 자기관리라는 의미는 그대로입니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "The current version of the App itself does not automatically transmit or collect personal information or usage data to the developer or third-party servers. Optional public support issues and email inquiries submitted outside the App are described separately in Section 6. The App does not request an account, name, email address, or contacts; use advertising identifiers; track activity across other companies’ apps or websites; or use third-party advertising or analytics services.",
+    "after": "The current version of the App itself does not automatically transmit personal information or usage data to the developer or third-party servers, nor does it collect that data for them. Optional public support issues and email inquiries submitted outside the App are described separately in Section 6. The App does not require an account, name, email address, or contacts. It does not send your selected apps, categories, or websites, your written purpose, or detailed usage records to the developer. It does not use advertising identifiers, track activity across other companies’ apps or websites, or use third-party advertising or analytics services.",
+    "reason": "collect data to의 문법 오류를 고치고, 한국어 1절에 명시된 선택 앱·카테고리·웹사이트, 입력 목적과 상세 사용 기록의 개발자 비전송을 영어에도 빠짐없이 반영합니다. 선택적 외부 문의와 Apple 시스템 서비스의 별도 범위를 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "when a website shield offers entry to temporary-allowance settings",
+    "after": "when a website protection screen offers a way to open temporary access settings",
+    "reason": "offers entry와 temporary-allowance를 자연스러운 UI 용어로 바꿉니다. 앞에 있는 internal test candidate 조건을 그대로 보존해야 합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "An allowance starts only after you confirm your purpose and duration in the app.",
+    "after": "Temporary access starts only after you confirm your purpose and duration in the app.",
+    "reason": "앱 공통 용어 temporary access로 통일하며 목적·시간 확인 후에만 시작한다는 조건을 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "the existing website-allowance route in the Protection tab remains available.",
+    "after": "the existing option for temporary website access in the Protection tab remains available.",
+    "reason": "route는 구현 중심 표현입니다. 기존 보호 탭 경로가 계속 제공된다는 의미를 자연스럽게 전달합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "needed for a temporary allowance and Shield restoration",
+    "after": "needed for temporary access and restoration of Shield protection",
+    "reason": "temporary access 용어를 통일하고 Shield 복원 대상이 보호임을 분명히 합니다. 저장 항목과 exact target 경계는 바꾸지 않습니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "intentional temporary allowances and habitual launches stopped after the user enables on-device history",
+    "after": "intentional temporary access and choices not to open an app out of habit after the user enables on-device choice history",
+    "reason": "habitual launches stopped는 부자연스럽고 측정된 앱 실행 종료로 읽힐 수 있습니다. 기록 대상이 사용자의 선택이라는 점을 명확히 하며 기록 동의 이후라는 범위를 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "one category selected when starting an allowance—contact someone, check information, take care of a task, take a short break, or write my own",
+    "after": "one category selected when starting temporary access—contact someone, look something up, get something done, take a short break, or write my own",
+    "reason": "temporary access와 현재 앱의 자연스러운 목적 분류 영어를 맞춥니다. 선택지 수·의미와 저장 조건은 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Categories summarize allowance counts and time unshielded, not actual usage or task completion.",
+    "after": "These categories summarize how often you allowed access and how long protection was lifted. They do not measure actual usage or whether a task was completed.",
+    "reason": "time unshielded를 일반 사용자가 이해할 수 있게 풀어 쓰고, 실제 사용 및 목적 달성 미측정의 원래 경계를 명확히 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "today’s overall intentional-allowance and habitual-stop counts",
+    "after": "today’s overall counts of choices to allow access or not open an app out of habit",
+    "reason": "habitual-stop이 습관적으로 멈추는 행동처럼 읽히는 문제를 피하고, 두 숫자가 사용자의 선택 횟수임을 명확히 합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Widget versions with total allowed time and recent seven-day summaries keep today's total allowed time, daily allowance and stop counts, and recording coverage for seven consecutive days including today in shared app and widget storage on the same iPhone.",
+    "after": "Widget versions with total access time and recent seven-day summaries keep today's total access time, daily counts of choices to allow access or not open an app, and recording coverage for seven consecutive days including today in shared app and widget storage on the same iPhone.",
+    "reason": "Total access time 공통 용어를 적용하고 두 횟수의 의미를 풀어 씁니다. 오늘 포함 연속 7일, 동의한 로컬 기록 집계와 저장 위치는 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Total allowed time is the time Shield protection was lifted up to the last aggregation, not actual app or website usage or time saved.",
+    "after": "Total access time is the elapsed time with Shield protection lifted, as of the last aggregation. It is not actual app or website usage time or time saved.",
+    "reason": "용어를 통일하고 집계 시점까지의 경과한 해제 시간이라는 정확한 의미를 읽기 쉬운 두 문장으로 나눕니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Per-app statistics are counts of Allow and Stop choices made in MomenTap, not actual time spent in each app.",
+    "after": "Per-app statistics count choices made in MomenTap to allow access or not open an app. They do not measure the time actually spent in each app.",
+    "reason": "Allow/Stop의 축약 표현을 풀어 써서 사용자가 선택한 횟수와 실제 사용량을 혼동하지 않게 합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Per-website statistics are the count and end state of temporary allowances started in MomenTap and the elapsed time while the Shield was removed, not proof of a visit or browser-use time.",
+    "after": "Per-website statistics show the number and end status of temporary access sessions started in MomenTap, along with the elapsed time while protection was lifted. They do not establish that a website was visited or measure browsing time.",
+    "reason": "count and end state의 긴 병렬 구조를 자연스럽게 나누고 temporary access를 적용합니다. MomenTap 시작형 범위와 방문·실제 브라우저 사용 시간 미측정은 그대로입니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "<strong>Total allowance time</strong> is the time a Shield was temporarily removed, not actual app or website use.",
+    "after": "<strong>Total access time</strong> is the time Shield protection was temporarily lifted, not actual app or website usage time.",
+    "reason": "총시간 레이블을 현재 앱과 맞추고 실제 사용 시간과 다른 값이라는 뜻을 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "A website temporary allowance is started separately in MomenTap's",
+    "after": "Temporary website access is started separately in MomenTap's",
+    "reason": "부자연스러운 명사 연결을 공통 용어로 바꿉니다. 뒤의 Protection 탭과 단일 대상·5/10/15분 설명은 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "other selected websites and categories remain protected during the allowance.",
+    "after": "other selected websites and categories remain protected while temporary access is active.",
+    "reason": "allowance를 temporary access로 통일합니다. 다른 선택 대상의 보호가 유지된다는 범위는 그대로입니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "If aggregate on-device history is enabled, the allowance may be included without a target identity. Only when per-website history is also enabled does the App distinguish later allowances started in MomenTap using a random local reference and a separate opaque WebDomain-token index.",
+    "after": "If aggregate on-device history is enabled, temporary access may be recorded without a target identity. Only when per-website history is also enabled does the App distinguish subsequent temporary access sessions started in MomenTap using a random local reference and a separate opaque WebDomain-token index.",
+    "reason": "temporary access와 choice history 표현을 통일합니다. 전체 동의와 웹사이트별 별도 동의, 동의 이후 새 기록, 불투명 토큰의 별도 인덱스 조건은 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Optional one-time developer support is processed by Apple’s StoreKit and App Store payment system. The developer does not have access to payment-card details. The App does not save transaction identifiers, receipts, support history, or a supporter profile, and support does not change access to features, content, or customer service.",
+    "after": "Optional one-time payments to support the developer are processed by Apple’s StoreKit and App Store payment system. The developer cannot access payment-card or other payment-method details. The App does not save transaction identifiers, receipts, a history of support payments, or a supporter profile in files or on the developer’s servers. Choosing whether to support the developer does not affect the features, content, or customer support you receive.",
+    "reason": "한국어 3절에 있는 결제 카드 외 결제 수단 정보와 파일 또는 개발자 서버 미저장을 영어에도 명시합니다. support history가 지원 문의 내역으로 읽히지 않도록 후원 결제 내역으로 구체화하며 기능·콘텐츠·고객지원의 비차등 원칙을 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "Target-bearing temporary-allowance state",
+    "after": "Temporary access state that contains a target token",
+    "reason": "전문가용 target-bearing 표현을 풀어 쓰면서 대상 토큰이 포함된 임시 허용 상태라는 삭제 범위를 그대로 유지합니다."
+  },
+  {
+    "file": "privacy/index.html",
+    "before": "shared allowance state and restoration-coordination metadata",
+    "after": "shared temporary access state and restoration-coordination metadata",
+    "reason": "공유 상태의 제품 용어만 통일합니다. 백업 제외·Data Protection 대상과 복원 조정 메타데이터 범위는 변경하지 않습니다."
+  }
+]

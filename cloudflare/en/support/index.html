@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Help with MomenTap for iPhone: protection screens, Screen Time permissions, temporary access, and on-device choice history.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>MomenTap Support</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/support.css">
+  <link rel="canonical" href="https://ianji.net/en/support/">
+  <link rel="alternate" hreflang="ko" href="https://ianji.net/support/">
+  <link rel="alternate" hreflang="en" href="https://ianji.net/en/support/">
+  <link rel="alternate" hreflang="ja" href="https://ianji.net/ja/support/">
+  <link rel="alternate" hreflang="x-default" href="https://ianji.net/support/">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/en/support/" aria-label="MomenTap support home">
+      <span class="brand-mark" aria-hidden="true">⌛</span>
+      <span>MomenTap</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/en/">About IANJI</a>
+      <a href="/en/products/momentap/">About MomenTap</a>
+      <a aria-current="page" href="/en/support/">Support</a>
+      <a href="/en/privacy/">Privacy policy</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Pause before opening</p>
+      <h1 id="hero-title">Use with intention.<br>Only as long as you need.</h1>
+      <p class="hero-copy">MomenTap helps you pause before opening an app you selected and consider whether you need it right now. It also protects websites you select individually. To allow temporary access to one of them, open the Protection tab in MomenTap and choose 5, 10, or 15 minutes.</p>
+      <div class="time-rail" aria-label="Time indicator with 15 segments"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="quick-links" aria-label="Quick help">
+      <a class="panel-link" href="#troubleshooting">
+        <span class="panel-icon" aria-hidden="true">?</span>
+        <span><strong>Troubleshooting</strong><small>Protection, permissions, and temporary access</small></span>
+      </a>
+      <a class="panel-link" href="/en/privacy/">
+        <span class="panel-icon" aria-hidden="true">✓</span>
+        <span><strong>Privacy</strong><small>Minimal data, processed on your device</small></span>
+      </a>
+    </section>
+
+    <section id="troubleshooting" class="content-section" aria-labelledby="troubleshooting-title">
+      <p class="section-label">Troubleshooting</p>
+      <h2 id="troubleshooting-title">Frequently asked questions</h2>
+
+      <details open>
+        <summary>The protection screen isn’t appearing</summary>
+        <ol><li>In MomenTap’s <strong>Protection</strong> tab, check that protection is <strong>On</strong>.</li><li>Check that you have selected at least one app, website, or category.</li><li>Check that Screen Time access is approved.</li><li>Save your selection again in protection settings, then turn on protection.</li><li>If the problem continues, restart your iPhone and open MomenTap once.</li></ol>
+      </details>
+
+      <details>
+        <summary>Why doesn’t a category protection screen ask what I want to do?</summary>
+        <p>This is expected. On a category protection screen, MomenTap cannot safely identify the exact app you opened, so it provides only a close button. To use temporary access, select the app individually.</p>
+      </details>
+
+      <details>
+        <summary>Why don’t websites show the same two buttons as apps?</summary>
+        <p>This is expected. In Safari, selected websites show Apple’s standard restriction screen and a confirmation button. MomenTap’s two custom buttons do not appear on that screen. For temporary access, open MomenTap’s <strong>Protection</strong> tab and find <strong>Temporary website access</strong>. Choose one website you selected individually, set a purpose, and choose 5, 10, or 15 minutes. The browser does not open automatically; return to it yourself after access starts. Other selected websites and categories remain protected. Apple’s public APIs do not guarantee the same behavior in every browser or for every subdomain.</p>
+      </details>
+
+      <details>
+        <summary>MomenTap doesn’t open from an individual app’s protection screen</summary>
+        <p>MomenTap supports iOS 26.5 and later. On a supported iPhone, choosing <strong>I have something to do</strong> on an individual app’s protection screen opens MomenTap’s purpose and access-duration settings.</p>
+      </details>
+
+      <details>
+        <summary>The access time ended, but the protection screen hasn’t returned</summary>
+        <p>iOS decides when background tasks run, so there may be a delay. Reopen the selected app to check. If it still isn’t protected, open MomenTap to check the status again.</p>
+      </details>
+
+      <details>
+        <summary>Why am I asked for Screen Time access again after a restart?</summary>
+        <p>After a restart, iOS may temporarily report existing Screen Time access as <strong>Not requested</strong> or <strong>Denied</strong>. MomenTap keeps the selection you previously protected on this iPhone. When you approve access again, it restores the saved selection and protection. To delete the selection, clear it in protection settings or use <strong>Reset all app data</strong> in Settings.</p>
+      </details>
+
+      <details>
+        <summary>Does resetting all app data also revoke Screen Time access?</summary>
+        <p>No. A reset clears MomenTap’s saved app, website, and category selections; protection requests; temporary access and session data; Live Activities; overall choice history; and app- and website-specific token links. It does not revoke the system’s Screen Time permission. You can revoke that permission separately in iPhone Settings.</p>
+      </details>
+
+      <details>
+        <summary>What choice history is saved?</summary>
+        <p>Choice history is off by default. When you turn on <strong>on-device choice history</strong>, MomenTap saves the times and end reasons for temporary access and choices not to open an app out of habit, without identifying the app or website. These records stay on this iPhone for 90 days by default. In versions with retention settings, your selected retention period applies. <strong>App-specific choice history</strong> and <strong>website-specific choice history</strong> each require a separate opt-in. They distinguish only new choices made after you opt in, using random references and a separate index of opaque Screen Time tokens. App names and plain-text domain names are not saved; Apple’s system UI displays them. Website statistics show the number and end status of temporary access sessions started in MomenTap, and the time protection was lifted. They do not represent actual visits or browsing time. Screen Time app category names, written purpose text, and raw Screen Time usage data are not recorded.</p>
+      </details>
+
+      <details>
+        <summary>Is total access time the time I actually used an app?</summary>
+        <p>No. Total access time is the time MomenTap temporarily lifted protection. It is not the time you actually used an app or website, and it is not collected from other apps’ Screen Time usage data.</p>
+      </details>
+    </section>
+
+    <section class="content-section contact" aria-labelledby="contact-title">
+      <p class="section-label">Contact</p>
+      <h2 id="contact-title">Need more help?</h2>
+      <p>For product support, email <a href="mailto:contact@ianji.net">contact@ianji.net</a>. You can also report a problem in a public GitHub issue. Anyone can read public issues, so do not include app, website, or category names; URLs; Screen Time selections or tokens; Apple Account information; device identifiers; or other personal information.</p>
+      <a class="button" href="https://github.com/leauchoux/intentionaluse-support/issues/new/choose">Create a support request</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>MomenTap does not provide parental supervision or guarantee that its restrictions cannot be bypassed.</p>
+    <p><a href="/en/privacy/">Privacy policy</a> · <a href="https://github.com/leauchoux/intentionaluse-support/issues">Public support issues</a></p>
+  </footer>
+</body>
+</html>
