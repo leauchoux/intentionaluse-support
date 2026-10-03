@@ -12,19 +12,33 @@ const families = {
 };
 const fileFor = route => `${route.slice(1)}index.html`;
 
+function languagePicker(language, routes, { markCurrentPage = true } = {}) {
+  return `<details class="language-picker">
+    <summary aria-label="${labels[language]}: ${names[language]}"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span lang="${language}">${names[language]}</span></summary>
+    <ul class="language-options" aria-label="${labels[language]}">${languages.map(code =>
+      `<li><a href="${routes[code]}" lang="${code}" hreflang="${code}"${code === language && markCurrentPage ? ' aria-current="page"' : ''}><span>${names[code]}</span>${code === language ? '<span aria-hidden="true">✓</span>' : ''}</a></li>`
+    ).join('')}</ul>
+  </details>`;
+}
+
+function removeLanguageLinks(html) {
+  return html.replace(/\s*<a\b[^>]*>\s*(?:한국어|English|日本語)\s*<\/a>/g, '')
+    .replace(/\s*<nav\b[^>]*>\s*<\/nav>/g, '');
+}
+
 function languageNavigation(html, language, routes, origin) {
   // Every language switch retains the current page, including support/privacy.
-  const navigation = `<span class="language-links" role="group" aria-label="${labels[language]}">${languages.map(code =>
-    `<a class="language" href="${routes[code]}" lang="${code}" hreflang="${code}"${code === language ? ' aria-current="page"' : ''}>${names[code]}</a>`
-  ).join('')}</span>`;
   let headerFound = false;
   html = html.replace(/(<header\b[^>]*>)([\s\S]*?)(<\/header>)/, (_, opening, contents, closing) => {
     headerFound = true;
     contents = contents.replace(/\s*<a\b[^>]*class="language"[^>]*>[\s\S]*?<\/a>/g, '');
     if (!contents.includes('</nav>')) throw new Error('Missing header navigation');
-    return opening + contents.replace('</nav>', `${navigation}\n    </nav>`) + closing;
+    return opening + contents + languagePicker(language, routes) + closing;
   });
   if (!headerFound) throw new Error('Missing page header');
+  // One consistent selector replaces legacy footer language lists as well.
+  html = html.replace(/(<footer\b[^>]*>)([\s\S]*?)(<\/footer>)/,
+    (_, opening, contents, closing) => opening + removeLanguageLinks(contents) + closing);
   html = html.replace(/\s*<link rel="(?:canonical|alternate)"[^>]*>/g, '');
   const links = [`<link rel="canonical" href="${origin}${routes[language]}">`,
     ...languages.map(code => `<link rel="alternate" hreflang="${code}" href="${origin}${routes[code]}">`),
@@ -101,14 +115,28 @@ export async function localizeSite({ root, output, origin }) {
   }
   let notFound = await readOutput('404.html');
   notFound = notFound.replace('<nav class="footer-links"', '<p lang="ja">ページが見つかりません。以下のリンクからお進みください。</p>\n    <nav class="footer-links"')
-    .replace('<a href="/support/">', '<a href="/ja/" lang="ja">日本語</a><a href="/support/">');
+    .replace('</head>', '<link rel="stylesheet" href="/assets/languages.css">\n</head>');
+  notFound = removeLanguageLinks(notFound).replace('</header>', languagePicker('ko', families.home, { markCurrentPage: false }) + '</header>');
   await write('404.html', notFound);
   await write('assets/languages.css', `/* Language navigation and Japanese typography; no scripts or remote fonts. */
-.language-links { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
-.language-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding-inline: .8rem; border: 1px solid var(--line); border-radius: 100px; text-decoration: none; white-space: nowrap; }
-.language-links a[aria-current="page"] { color: var(--ink); border-color: currentColor; font-weight: 700; }
+.language-picker { position: relative; z-index: 10; flex: 0 0 auto; max-width: 100%; margin: 0; padding: 0; border: 0; font-size: .9375rem; }
+.language-picker:last-child { border: 0; }
+.language-picker > summary { display: flex; align-items: center; gap: .5rem; min-height: 44px; padding: .45rem .85rem; border: 1px solid var(--line); border-radius: 100px; background: var(--paper); color: var(--ink); font-weight: 600; line-height: 1.4; list-style: none; cursor: pointer; }
+.language-picker > summary::-webkit-details-marker { display: none; }
+.language-picker > summary svg { width: 18px; height: 18px; flex: none; }
+.language-picker > summary::after { content: ''; width: .4rem; height: .4rem; margin-left: .3rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.language-picker[open] > summary { border-color: currentColor; }
+.language-picker[open] > summary::after { transform: translateY(2px) rotate(225deg); }
+.language-picker:not([open]) > .language-options { display: none; }
+.language-options { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); width: max-content; min-width: min(11rem, calc(100vw - 40px)); max-width: calc(100vw - 40px); max-height: min(60vh, 22rem); overflow-y: auto; overscroll-behavior: contain; margin: 0; padding: .35rem; list-style: none; border: 1px solid var(--line); border-radius: 14px; background: var(--surface, var(--paper)); box-shadow: 0 10px 32px rgb(20 20 40 / 14%); }
+.language-options li { margin: 0; padding: 0; }
+.language-options a { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 44px; padding: .5rem .75rem; border-radius: 8px; color: var(--ink); line-height: 1.4; text-decoration: none; overflow-wrap: anywhere; }
+.language-options a:hover, .language-options a[aria-current="page"] { background: var(--soft, var(--violet-soft)); }
+.language-options a[aria-current="page"] { font-weight: 700; }
+.language-picker > summary:focus-visible, .language-options a:focus-visible { outline: 3px solid var(--focus, var(--brand)); outline-offset: 2px; }
 .site-header nav { flex-wrap: wrap; align-items: center; }
-.site-header .language-links { margin-left: auto; }
+.site-header > nav { margin-inline-start: auto; }
+.site-header > .language-picker:last-child { margin-inline-start: auto; }
 html:lang(ja) { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; }
 html:lang(ja) body { word-break: normal; line-break: strict; overflow-wrap: break-word; }
 html:lang(ja) h1, html:lang(ja) h2, html:lang(ja) h3 { letter-spacing: -.02em; }
@@ -118,11 +146,14 @@ html:lang(en) h1#hero-title { font-size: clamp(2rem, 4.8vw, 3.5rem); }
 .skip-link { position: absolute; z-index: 10; top: -100px; left: 1rem; padding: .75rem 1rem; background: var(--paper); }
 .skip-link:focus { top: 1rem; }
 @media (max-width: 700px) {
-  .site-header .language-links { flex-basis: 100%; margin-left: 0; }
+  .site-header > nav { order: 1; width: 100%; margin-inline-start: 0; }
   .site-header:not(.wrap) { flex-wrap: wrap; gap: .75rem; }
   .site-header:not(.wrap) nav { width: 100%; flex-direction: row; justify-content: flex-start; gap: .35rem 1rem; text-align: left; }
   .site-header:not(.wrap) nav > a { display: inline-flex; align-items: center; min-height: 44px; }
   html:lang(ja) .hero h1 { font-size: clamp(1.5rem, 7vw, 2.25rem); }
+}
+@media (max-width: 360px) {
+  .language-picker > summary { gap: .35rem; padding-inline: .65rem; font-size: .875rem; }
 }
 `);
   const routes = Object.values(families).flatMap(family => Object.values(family));
