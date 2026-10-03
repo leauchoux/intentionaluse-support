@@ -74,6 +74,8 @@ html:has(.language-dialog[open]) { overflow: hidden; }
 .language-panel { background: var(--language-surface); border-radius: 8px; overflow: hidden; }
 .language-panel-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; padding: 8px 16px 8px 28px; border-bottom: 1px solid rgb(0 0 0 / 5%); }
 .language-panel-header h2 { margin: 0; color: inherit; font: inherit; font-weight: 500; letter-spacing: normal; }
+/* Initial touch focus announces the title without highlighting a control. */
+.language-panel-header h2:focus { outline: none; }
 .language-close { position: relative; display: grid; place-items: center; width: 44px; height: 44px; flex: none; padding: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
 .language-close::before { content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--language-hover); }
 .language-close svg { position: relative; width: 16px; height: 16px; }

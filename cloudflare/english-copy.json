@@ -1,6 +1,12 @@
 [
   {
     "file": "en/index.html",
+    "before": "<p class=\"section-sub\" lang=\"ko\">이안지 소개</p>",
+    "after": "<p class=\"section-sub\">Who we are</p>",
+    "reason": "영문 회사 소개에 남은 한글 소제목을 자연스러운 영어로 바꾸고 한국어 언어 표기를 제거합니다."
+  },
+  {
+    "file": "en/index.html",
     "before": "IANJI develops mobile software that respects personal choice and privacy. Learn about MomenTap, our digital wellbeing app for iPhone, and contact our business.",
     "after": "IANJI develops mobile software that respects personal choice and privacy. Learn about MomenTap, our digital wellbeing app for iPhone, and get in touch with us.",
     "reason": "메타 설명의 contact our business는 어색한 직역이므로 자연스러운 연락 안내로 교정합니다. 제품 상태나 사업 범위는 바꾸지 않습니다."

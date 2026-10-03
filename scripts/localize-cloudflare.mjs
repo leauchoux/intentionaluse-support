@@ -30,7 +30,7 @@ function languagePicker(language, routes, { markCurrentPage = true } = {}) {
     <button class="language-trigger" type="button" aria-label="${labels[language]}: ${names[language]}" aria-haspopup="dialog" aria-controls="language-dialog" aria-expanded="false" hidden>${trigger}</button>
     <dialog class="language-dialog" id="language-dialog" aria-labelledby="language-title" data-results-label="${copy.results}"${language === 'en' ? ' data-result-one="1 language"' : ''}>
       <div class="language-panel">
-        <div class="language-panel-header"><h2 id="language-title">${copy.title}</h2><button class="language-close" type="button" aria-label="${copy.close}" autofocus><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m7 7 10 10M17 7 7 17"/></svg></button></div>
+        <div class="language-panel-header"><h2 id="language-title" tabindex="-1" autofocus>${copy.title}</h2><button class="language-close" type="button" aria-label="${copy.close}"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m7 7 10 10M17 7 7 17"/></svg></button></div>
         <ul class="language-list" aria-label="${copy.title}">${choices}</ul>
         <p class="language-empty" hidden>${copy.empty}</p>
       </div>
